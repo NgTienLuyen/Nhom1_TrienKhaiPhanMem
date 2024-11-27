@@ -1,0 +1,264 @@
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebQuanLyNhanSu.dll.config
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebQuanLyNhanSu.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebQuanLyNhanSu.pdb
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csc.exe
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csc.exe.config
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csc.rsp
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csi.exe
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csi.exe.config
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csi.rsp
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.AppContext.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Console.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.Compression.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Net.Http.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Net.Sockets.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.ValueTuple.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.XPath.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\vbc.exe
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\vbc.exe.config
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\vbc.rsp
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\VBCSCompiler.exe
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Antlr3.Runtime.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.SqlServer.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Newtonsoft.Json.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Owin.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Helpers.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Mvc.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Optimization.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Razor.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Deployment.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Razor.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebGrease.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Helpers.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Mvc.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Optimization.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Razor.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Deployment.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Razor.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Newtonsoft.Json.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Antlr3.Runtime.pdb
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.SqlServer.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.csproj.AssemblyReference.cache
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.csproj.CoreCompileInputs.cache
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanL.CF3822AC.Up2Date
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.pdb
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.Framework.dll
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.xml
+C:\Users\kienp\source\repos\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.Framework.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebQuanLyNhanSu.dll.config
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebQuanLyNhanSu.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebQuanLyNhanSu.pdb
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csc.exe
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csc.exe.config
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csc.rsp
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csi.exe
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csi.exe.config
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\csi.rsp
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.Managed.Core.targets
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.AppContext.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Collections.Immutable.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Console.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Globalization.Calendars.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.Compression.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.FileSystem.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Net.Http.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Net.Sockets.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Reflection.Metadata.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.ValueTuple.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.XmlDocument.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.XPath.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\vbc.exe
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\vbc.exe.config
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\vbc.rsp
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\VBCSCompiler.exe
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\roslyn\VBCSCompiler.exe.config
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Antlr3.Runtime.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.Framework.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.SqlServer.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Core.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Cookies.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Facebook.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Google.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.OAuth.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Twitter.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Web.Infrastructure.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Newtonsoft.Json.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Owin.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Helpers.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Mvc.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Optimization.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Razor.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Deployment.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Razor.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\WebGrease.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\DocumentFormat.OpenXml.Framework.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Helpers.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Mvc.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Optimization.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.Razor.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Deployment.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Web.WebPages.Razor.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Newtonsoft.Json.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Antlr3.Runtime.pdb
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\EntityFramework.SqlServer.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Core.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Facebook.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Cookies.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Google.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.Twitter.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Owin.Security.OAuth.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.csproj.AssemblyReference.cache
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.csproj.CoreCompileInputs.cache
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanL.CF3822AC.Up2Date
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\obj\Debug\WebQuanLyNhanSu.pdb
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Bcl.AsyncInterfaces.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Bcl.TimeProvider.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Extensions.Configuration.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Extensions.Primitives.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.Abstractions.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.Logging.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.Tokens.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Buffers.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.IdentityModel.Tokens.Jwt.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Memory.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Numerics.Vectors.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Runtime.CompilerServices.Unsafe.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Text.Encodings.Web.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Text.Json.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Threading.Tasks.Extensions.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.ValueTuple.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Bcl.AsyncInterfaces.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Bcl.TimeProvider.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Extensions.Configuration.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.Extensions.Primitives.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.Abstractions.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.Logging.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\Microsoft.IdentityModel.Tokens.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Buffers.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.IdentityModel.Tokens.Jwt.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Memory.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Numerics.Vectors.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Runtime.CompilerServices.Unsafe.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Text.Encodings.Web.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Text.Json.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.Threading.Tasks.Extensions.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\System.ValueTuple.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\PagedList.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\PagedList.Mvc.dll
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\PagedList.xml
+G:\HOCKY6\TRIỂN KHAI PHẦN MỀM\WebQuanLyNhanSu-20240920T014308Z-001\WebQuanLyNhanSu\WebQuanLyNhanSu\bin\PagedList.Mvc.xml

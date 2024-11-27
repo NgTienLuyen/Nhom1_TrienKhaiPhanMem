@@ -1,0 +1,39 @@
+﻿@model WebQuanLyNhanSu.Project
+
+@{
+    ViewBag.Title = "Sửa Dự Án";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Sua", "DuAn", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProjectID)
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProjectName)
+        @Html.TextBoxFor(model => model.ProjectName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ProjectName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StartDate)
+        <input type="date" id="StartDate" name="StartDate" value="@Model.StartDate.Value.ToString("yyyy-MM-dd")" class="form-control" />
+        @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EndDate)
+        <input type="date" id="EndDate" name="EndDate" value="@Model.EndDate.Value.ToString("yyyy-MM-dd")" class="form-control" />
+        @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ManagerID)
+        @Html.TextBoxFor(model => model.ManagerID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ManagerID, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+}

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Them";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <!-- Thêm các trường nhập liệu và nút để thêm mới tài khoản -->
+            <!-- Ví dụ: -->
+            <form method="post" action="@Url.Action("Them", "HeThong")">
+                <div class="mb-3">
+                    <label for="Username" class="form-label">Tên người dùng</label>
+                    <input type="text" class="form-control" name="Username" id="Username">
+                </div>
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" name="Password" id="Password">
+                </div>
+                <div class="mb-3">
+                    <label for="EmployeeID" class="form-label">Mã nhân viên</label>
+                    <input type="text" class="form-control" name="EmployeeID" id="EmployeeID">
+                </div>
+                <!-- Thêm các trường khác tương tự -->
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

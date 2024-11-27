@@ -1,0 +1,50 @@
+﻿@model WebQuanLyNhanSu.CheDo
+
+@{
+    ViewBag.Title = "Thêm chế độ";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            @using (Html.BeginForm("Them", "CheDo", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaCD, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.MaCD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaCD, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaNV, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.MaNV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NoiCap, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.NoiCap, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NoiCap, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NgayCap, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.NgayCap, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.NgayCap, "", new { @class = "text-danger" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="btn btn-primary">Thêm</button>
+            }
+        </div>
+    </div>
+</div>

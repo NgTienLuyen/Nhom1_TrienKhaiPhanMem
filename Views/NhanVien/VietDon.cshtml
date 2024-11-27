@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Leave>
+
+@{
+    ViewBag.Title = "Viết Đơn Xin Nghỉ";
+}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .card-header {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+    .filter-section {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Viết Đơn Xin Nghỉ</h5>
+                </div>
+                <div class="card-body">
+                    <form action="@Url.Action("VietDon", "NhanVien")" method="post">
+                        <div class="form-group">
+                            <label for="leaveType">Lí do nghỉ</label>
+                            <input type="text" class="form-control" id="leaveType" name="LeaveType" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Ngày Bắt Đầu</label>
+                            <input type="date" class="form-control" id="startDate" name="StartDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">Ngày Kết Thúc</label>
+                            <input type="date" class="form-control" id="endDate" name="EndDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi Đơn Xin Nghỉ</button>
+                        <a class="btn btn-secondary" href="~/NhanVien/Index">Quay lại</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh Sách Đơn Nghỉ Đã Xin</h2>
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="filterStatus">Trạng thái:</label>
+                        <select class="form-control" id="filterStatus">
+                            <option value="">Tất cả</option>
+                            <option value="Đã Duyệt">Đã Duyệt</option>
+                            <option value="Đang Chờ Duyệt">Đang Chờ Duyệt</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="searchKeyword">Tìm kiếm:</label>
+                        <input type="text" class="form-control" id="searchKeyword" placeholder="Nhập lý do hoặc mã đơn">
+                    </div>
+                    <div class="col-md-3">
+                        <label>&nbsp;</label> <!-- khoảng trắng -->
+                        <button class="btn btn-primary btn-block" id="searchButton">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Mã Đơn</th>
+                        <th>Lí Do Nghỉ</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Ngày Kết Thúc</th>
+                        <th>Trạng Thái</th>
+                    </tr>
+                </thead>
+                <tbody id="leaveTable">
+                    @foreach (var leave in Model)
+                    {
+                        <tr>
+                            <td>@leave.LeaveID</td>
+                            <td>@leave.LeaveType</td>
+                            <td>@leave.StartDate.Value.ToString("dd/MM/yyyy")</td>
+                            <td>@leave.EndDate.Value.ToString("dd/MM/yyyy")</td>
+                            <td>@leave.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shCk+5Qil8wZp5nBo/lC1DE0R3E6dJMI2tXJs" crossorigin="anonymous"></script>
+<script>
+    // Mã script cho việc lọc và tìm kiếm
+    $(document).ready(function () {
+        $('#searchButton').click(function () {
+            var status = $('#filterStatus').val();
+            var keyword = $('#searchKeyword').val().toLowerCase();
+
+            $('#leaveTable tr').each(function () {
+                var row = $(this);
+                var stat = row.find('td:eq(4)').text();
+                var reason = row.find('td:eq(1)').text().toLowerCase();
+                var id = row.find('td:eq(0)').text().toLowerCase();
+
+                var match = true;
+
+                if (status && status !== stat) {
+                    match = false;
+                }
+
+                if (keyword && !(reason.includes(keyword) || id.includes(keyword))) {
+                    match = false;
+                }
+
+                if (match) {
+                    row.show();
+                } else {
+                    row.hide();
+                }
+            });
+        });
+    });
+</script>

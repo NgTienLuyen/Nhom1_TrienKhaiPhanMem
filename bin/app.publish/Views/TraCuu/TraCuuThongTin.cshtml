@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Employee>
+
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="mt-4 mb-3">Tra Cứu Thông Tin Nhân Viên</h2>
+
+        @using (Html.BeginForm("TraCuuThongTin", "TraCuu", FormMethod.Get))
+        {
+            <div class="input-group mb-3">
+                <input type="text" name="strSearch" value="@ViewBag.Search" class="form-control" placeholder="Nhập tên, phòng ban, dự án, tài khoản cần tìm...">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                </div>
+            </div>
+        }
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Danh sách nhân viên</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Birth Date</th>
+                                    <th>Address</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var employee in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.ActionLink($"{employee.FirstName} {employee.LastName}", "EmployeeDetails", "Home", new { id = employee.EmployeeID }, null)
+                                        </td>
+                                        <td>@Html.DisplayFor(modelItem => employee.BirthDate)</td>
+                                        <td>@Html.DisplayFor(modelItem => employee.Address)</td>
+                                        <td>@Html.DisplayFor(modelItem => employee.PhoneNumber)</td>
+                                        <td>@Html.DisplayFor(modelItem => employee.Email)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p>Không tìm thấy kết quả phù hợp.</p>
+        }
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

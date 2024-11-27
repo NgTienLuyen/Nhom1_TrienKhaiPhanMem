@@ -1,0 +1,281 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Ký</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://inkythuatso.com/uploads/thumbnails/800/2023/03/1-hinh-nen-ban-lam-viec-3d-inkythuatso-14-11-50-59.jpg'); /* Thay 'path/to/your/background-image.jpg' bằng đường dẫn tới ảnh nền */
+            background-size: cover; /* Đảm bảo ảnh nền phủ kín màn hình */
+            background-position: center; /* Giữ ảnh nằm giữa */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.5); /* Màu nền trắng với độ mờ 0.8 */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #f8f9fa;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            width: 60%;
+        }
+
+        .close {
+            color: #333;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover, .close:focus {
+                color: #007bff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        #countdown {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        #errorMessage {
+            color: #dc3545;
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Đăng Ký Thông Tin Cá Nhân</h2>
+        <form id="registerForm" class="pt-3">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="FirstName">Họ</label>
+                    <input type="text" class="form-control" id="FirstName" name="FirstName" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="LastName">Tên</label>
+                    <input type="text" class="form-control" id="LastName" name="LastName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="BirthDate">Ngày sinh</label>
+                <input type="date" class="form-control" id="BirthDate" name="BirthDate" required>
+            </div>
+            <div class="form-group">
+                <label for="Address">Địa chỉ</label>
+                <input type="text" class="form-control" id="Address" name="Address" required>
+            </div>
+            <div class="form-group">
+                <label for="PhoneNumber">Số điện thoại</label>
+                <input type="tel" class="form-control" id="PhoneNumber" name="PhoneNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="CCCD">CCCD</label>
+                <input type="text" class="form-control" id="CCCD" name="CCCD" required>
+            </div>
+            <div class="form-group">
+                <label for="NoiCap">Nơi cấp</label>
+                <input type="text" class="form-control" id="NoiCap" name="NoiCap" required>
+            </div>
+            <div class="form-group">
+                <label for="NgayDK">Ngày đăng ký</label>
+                <input type="date" class="form-control" id="NgayDK" name="NgayDK" required>
+            </div>
+            <div class="form-group">
+                <label for="NgayKi">Ngày ký</label>
+                <input type="date" class="form-control" id="NgayKi" name="NgayKi" required>
+            </div>
+            <div class="form-group">
+                <label for="NgayHetHan">Ngày hết hạn</label>
+                <input type="date" class="form-control" id="NgayHetHan" name="NgayHetHan" required>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="ChucVu">Chức vụ</label>
+                <input type="text" class="form-control" id="ChucVu" name="ChucVu">
+            </div>
+            <div class="form-group">
+                <label for="GioiTinh">Giới tính</label>
+                <select class="form-control" id="GioiTinh" name="GioiTinh">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                    <option value="Khác">Khác</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="DanToc">Dân tộc</label>
+                <input type="text" class="form-control" id="DanToc" name="DanToc">
+            </div>
+            <div class="form-group">
+                <label for="HocVan">Học vấn</label>
+                <input type="text" class="form-control" id="HocVan" name="HocVan">
+            </div>
+            <div class="form-group">
+                <label for="DepartmentID">Mã phòng ban</label>
+                <input type="text" class="form-control" id="DepartmentID" name="DepartmentID">
+            </div>
+            <div class="form-group">
+                <label for="TrangThai">Trạng thái</label>
+                <select class="form-control" id="TrangThai" name="TrangThai">
+                    <option value="Hoạt động">Hoạt động</option>
+                    <option value="Không hoạt động">Không hoạt động</option>
+                </select>
+            </div>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Đăng Ký</button>
+            </div>
+            <div id="errorMessage" style="color: red;"></div>
+        </form>
+    </div>
+
+    <!-- Modal OTP -->
+    <div id="otpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeOtpModal()">&times;</span>
+            <h4>Nhập mã OTP</h4>
+            <h6 class="font-weight-light">Vui lòng nhập mã OTP được gửi đến email của bạn.</h6>
+            <form id="otpForm" method="post">
+                <div class="form-group">
+                    <input type="text" name="otp" class="form-control form-control-lg" id="otp" placeholder="OTP" required>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">XÁC THỰC OTP</button>
+                </div>
+            </form>
+            <p>Thời gian còn lại: <span id="countdown">5:00</span></p>
+        </div>
+    </div>
+
+    <!-- Modal Thanh Toán -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePaymentModal()">&times;</span>
+            <h4>Thông Tin Thanh Toán</h4>
+            <form id="paymentForm" method="post">
+                <div class="form-group">
+                    <label for="PaymentMethod">Phương thức thanh toán</label>
+                    <select class="form-control" id="PaymentMethod" name="PaymentMethod" required>
+                        <option value="CreditCard">Thẻ tín dụng</option>
+                        <option value="Paypal">Paypal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="CardNumber">Số thẻ</label>
+                    <input type="text" class="form-control" id="CardNumber" name="CardNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="CardExpiry">Ngày hết hạn</label>
+                    <input type="text" class="form-control" id="CardExpiry" name="CardExpiry" required placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="CVC">CVC</label>
+                    <input type="text" class="form-control" id="CVC" name="CVC" required>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">THANH TOÁN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById('registerForm').onsubmit = function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/Register', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('otpModal').style.display = 'block';
+                        startCountdown(300); // 5 minutes countdown
+                    } else {
+                        document.getElementById('errorMessage').innerText = 'Đã có lỗi xảy ra. Vui lòng thử lại.';
+                    }
+                });
+        };
+
+        function startCountdown(duration) {
+            var countdownElement = document.getElementById('countdown');
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                countdownElement.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    closeOtpModal();
+                    alert("Thời gian OTP đã hết hạn!");
+                }
+            }, 1000);
+        }
+
+        function closeOtpModal() {
+            document.getElementById('otpModal').style.display = 'none';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

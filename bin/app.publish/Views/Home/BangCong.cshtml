@@ -1,0 +1,143 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Attendance>
+
+@{
+    ViewBag.Title = "Bảng Công";
+    Layout = "~/Views/Shared/Layout.cshtml";
+
+}
+<div class="container">
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @ViewBag.Message
+        </div>
+    }
+    <div class="card" style="width:1020px">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Mã nhân viên</th>
+                            <th>Ngày</th>
+                            <th>Giờ vào</th>
+                            <th>Giờ ra</th>
+                            <th>Timer</th>
+                            <th>Đi trễ</th>
+                            <th>Về sớm</th>
+                            <th>OT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var attendance in Model)
+                        {
+                            <tr>
+                                <td>@attendance.EmployeeID</td>
+                                <td>@attendance.Ngay</td>
+                                <td>@attendance.CheckIn</td>
+                                <td>@attendance.CheckOut</td>
+                                <td>@attendance.Timer</td>
+                                <td>@attendance.DiTre</td>
+                                <td>@attendance.VeSom</td>
+                                <td>@attendance.OT</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="phatModal" tabindex="-1" role="dialog" aria-labelledby="phatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="phatModalLabel">Nhập số tiền phạt và lý do</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form nhập số tiền phạt và lý do -->
+                <form id="phatForm">
+                    <div class="form-group">
+                        <label for="phatAmount">Số tiền phạt:</label>
+                        <input type="text" class="form-control" id="phatAmount" name="phatAmount">
+                    </div>
+                    <div class="form-group">
+                        <label for="phatReason">Lý do:</label>
+                        <input type="text" class="form-control" id="phatReason" name="phatReason">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" onclick="ghiPhieuPhat()">Ghi phiếu phạt</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hiddenEmployeeID" name="hiddenEmployeeID">
+
+<script>
+    function showPhatModal(employeeID) {
+        $('#hiddenEmployeeID').val(employeeID);
+        $('#phatModal').modal('show');
+    }
+
+    function ghiPhieuPhat() {
+        var employeeID = $('#hiddenEmployeeID').val();
+        var amount = $('#phatAmount').val();
+        var reason = $('#phatReason').val();
+        // Gọi action PhatDiTre với thông tin nhập vào
+        $.ajax({
+            url: '/Phat/PhatDiTre',
+            data: { employeeID: employeeID, amount: amount, reason: reason },
+            success: function (data) {
+                // Xử lý kết quả thành công (nếu cần)
+                $('#phatModal').modal('hide');
+            },
+            error: function () {
+                alert('Đã xảy ra lỗi khi ghi phiếu phạt.');
+            }
+        });
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="width:1020px">
+            <div class="card-body">
+                <h2 class="card-title text-center" style="font-family:VNI-Times">Số lần đi trễ của nhân viên</h2>
+                <table class="table table-bordered table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>Mã nhân viên</th>
+                            <th>Tên nhân viên</th>
+                            <th>Số lần đi trễ</th>
+                            <th>Số lần về sớm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.SoLanDiTreVaVeSom)
+                        {
+                            <tr>
+                                <td>@item.Key</td>
+                                <td>@item.Value.Item1</td>
+                                <td>@item.Value.Item2</td>
+                                <td>@item.Value.Item3</td>
+                                <td>
+                                    <button style="font-family: VNI-Times;" class="btn btn-primary" onclick="showPhatModal('@item.Key')">Ghi phiếu phạt</button>
+                                </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

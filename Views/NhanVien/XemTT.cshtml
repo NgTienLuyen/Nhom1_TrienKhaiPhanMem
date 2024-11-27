@@ -1,0 +1,128 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Cá Nhân";
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-header {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .info-section {
+            margin-bottom: 2rem;
+        }
+
+            .info-section h6 {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #007bff;
+                display: inline-block;
+                padding-bottom: 5px;
+            }
+
+        .list-group-item {
+            border: none;
+            padding: 0.75rem 1.25rem;
+        }
+
+            .list-group-item + .list-group-item {
+                border-top: 1px solid #dee2e6;
+            }
+
+        .btn-primary {
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.25rem;
+        }
+    </style>
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Thông Tin Cá Nhân</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Thông Tin Cá Nhân -->
+                    <div class="info-section">
+                        <h6>Thông Tin Cá Nhân</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Mã Nhân Viên: @ViewBag.TT.EmployeeID</li>
+                                    <li class="list-group-item">Họ và Tên: @ViewBag.TT.FirstName @ViewBag.TT.LastName</li>
+                                    <li class="list-group-item">Ngày Sinh: @ViewBag.TT.BirthDate.ToString("dd/MM/yyyy")</li>
+                                    <li class="list-group-item">Địa Chỉ: @ViewBag.TT.Address</li>
+                                    <li class="list-group-item">Số Điện Thoại: @ViewBag.TT.PhoneNumber</li>
+                                    <li class="list-group-item">Email: @ViewBag.TT.Email</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">CCCD: @ViewBag.TT.CCCD</li>
+                                    <li class="list-group-item">Nơi Cấp: @ViewBag.TT.NoiCap</li>
+                                    <li class="list-group-item">Ngày Đăng Ký CCCD: @ViewBag.TT.NgayDK.ToString("dd/MM/yyyy")</li>
+                                    <li class="list-group-item">Ngày Kí Hợp Đồng: @ViewBag.TT.NgayKi.ToString("dd/MM/yyyy")</li>
+                                    <li class="list-group-item">Ngày Hết Hạn Hợp Đồng: @ViewBag.TT.NgayHetHan.ToString("dd/MM/yyyy")</li>
+                                    <li class="list-group-item">Chức Vụ: @ViewBag.TT.ChucVu</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phần BHXH -->
+                    <div class="info-section">
+                        <h6>Phần BHXH</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Mã BHXH: @ViewBag.CD.MaCD</li>
+                                    <li class="list-group-item">Ngày Cấp: @ViewBag.CD.NgayCap.ToString("dd/MM/yyyy")</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Nơi Cấp: @ViewBag.CD.NoiCap</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phân Công Công Việc -->
+                    <div class="info-section">
+                        <h6>Phân Công Công Việc</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var item in ViewBag.PC)
+                                    {
+                                        <li class="list-group-item">Mã Phân Công: @item.MaPC</li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    @foreach (var item in ViewBag.PC)
+                                    {
+                                        <li class="list-group-item">Mã Dự Án: @item.MaDA</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="btn btn-primary" href="~/NhanVien/Index">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

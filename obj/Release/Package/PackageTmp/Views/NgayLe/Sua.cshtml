@@ -1,0 +1,45 @@
+﻿@model WebQuanLyNhanSu.NgayLe
+
+@{
+    ViewBag.Title = "Sửa ngày lễ";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            @using (Html.BeginForm("Sua", "NgayLe", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group"> @Html.HiddenFor(u => u.MaNgay) </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TenNgayLe, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.TenNgayLe, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NgayBatDau, htmlAttributes: new { @class = "control-label" })
+                    <input type="date" id="NgayBatDau" name="NgayBatDau" value="@Model.NgayBatDau.ToString("yyyy-MM-dd")" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NgayKetThuc, htmlAttributes: new { @class = "control-label" })
+                    <input type="date" id="NgayKetThuc" name="NgayKetThuc" value="@Model.NgayKetThuc.ToString("yyyy-MM-dd")" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HeSo, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.HeSo, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                    <a href="@Url.Action("NgayLe", "Home")" class="btn btn-default">Quay lại</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

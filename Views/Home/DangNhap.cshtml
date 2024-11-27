@@ -1,0 +1,200 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <link rel="stylesheet" href="~/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico" />
+    <style>
+        body {
+            background-color: #f0f8ff; /* Nền xanh dương nhẹ */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .auth-form-light {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-logo img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        h4, h6 {
+            color: #007bff; /* Màu xanh dương nhẹ cho tiêu đề */
+        }
+
+        .btn-gradient-primary {
+            background: linear-gradient(45deg, #6db3f2, #1e90ff); /* Gradient xanh dương */
+            border: none;
+            color: white;
+        }
+
+            .btn-gradient-primary:hover {
+                background: linear-gradient(45deg, #1e90ff, #6db3f2); /* Hover cho nút */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+        input.form-control {
+            border-radius: 5px;
+            border: 1px solid #007bff; /* Viền xanh dương nhẹ */
+            padding: 10px;
+        }
+
+            input.form-control:focus {
+                border-color: #1e90ff; /* Màu khi focus */
+                box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+            }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #f8f9fa; /* Nền nhẹ */
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            width: 60%;
+        }
+
+        .close {
+            color: #333;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover, .close:focus {
+                color: #007bff;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        #otpModal h4 {
+            color: #007bff;
+        }
+
+        #countdown {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        #errorMessage {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth">
+                <div class="row flex-grow">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left p-5">
+                            <div class="brand-logo">
+                                <img src="~/assets/images/cmc.png">
+                            </div>
+                            <h4>Hello! let's get started</h4>
+                            <h6 class="font-weight-light">Sign in to continue.</h6>
+                            <form id="loginForm" class="pt-3">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control form-control-lg" id="username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Password">
+                                </div>
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+                                </div>
+                                <div id="errorMessage" style="color: red;"></div>
+                                <!-- Thêm câu hỏi chưa có tài khoản -->
+                                <div class="text-center mt-4">
+                                    <p>Bạn chưa có tài khoản? <a href="@Url.Action("Gioithieu", "Home")" class="text-primary">Đăng ký ngay</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- Modal OTP -->
+    <div id="otpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h4>Nhập mã OTP</h4>
+            <h6 class="font-weight-light">Vui lòng nhập mã OTP được gửi đến email của bạn.</h6>
+            <form id="otpForm" action="@Url.Action("ClearExpiredOtp", "Home")" method="post">
+                <div class="form-group">
+                    <input type="text" name="otp" class="form-control form-control-lg" id="otp" placeholder="OTP">
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">XÁC THỰC OTP</button>
+                </div>
+            </form>
+            <p>Thời gian còn lại: <span id="countdown">5:00</span></p>
+        </div>
+    </div>
+
+    <!-- plugins:js -->
+    <script src="~/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="~/assets/js/off-canvas.js"></script>
+    <script src="~/assets/js/hoverable-collapse.js"></script>
+    <script src="~/assets/js/misc.js"></script>
+    <!-- endinject -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    fetch('@Url.Action("DangNhap", "Home")', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            window.location.href = result.redirectUrl;
+        } else {
+            document.getElementById('errorMessage').textContent = result.message;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+    </script>
+</body>
+</html>

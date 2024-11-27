@@ -1,0 +1,209 @@
+﻿@model List<WebQuanLyNhanSu.Project>
+
+@{
+    ViewBag.Title = "Danh sách dự án";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <a href="@Url.Action("Them", "DuAn")" style="font-family: VNI-Times;" class="btn btn-primary">Thêm dự án</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Mã dự án </th>
+                            <th> Tên dự án </th>
+                            <th> Ngày bắt đầu </th>
+                            <th> Ngày kết thúc </th>
+                            <th> Quản lý </th>
+                            <th> Trạng thái </th>
+                            <th> Thao tác </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var project in Model)
+                        {
+                            <tr>
+                                <td> @project.ProjectID </td>
+                                <td> @project.ProjectName </td>
+                                <td> @project.StartDate.Value.ToString("dd/MM/yyyy") </td>
+                                <td> @project.EndDate.Value.ToString("dd/MM/yyyy") </td>
+
+                                <td> @project.ManagerID </td>
+                                <td>@project.TrangThai</td>
+                                <td>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Sua", "DuAn", new { id = project.ProjectID })" class="btn btn-warning">Sửa</a>
+                                    <button style="font-family: VNI-Times;" type="button" class="btn btn-danger deleteButton" data-id="@project.ProjectID">Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="phieuPhatModal" tabindex="-1" role="dialog" aria-labelledby="phieuPhatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="phieuPhatModalLabel">Nhập thông tin phiếu phạt</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="soTien">Số tiền:</label>
+                    <input type="text" class="form-control" id="soTien">
+                </div>
+                <div class="form-group">
+                    <label for="lyDo">Lý do:</label>
+                    <textarea class="form-control" id="lyDo" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="luuPhieuPhat">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h2 style="font-family: VNI-Times;" class="card-title text-center">Bảng dự án trễ hạn</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Mã dự án </th>
+                            <th> Tên dự án </th>
+                            <th> Ngày bắt đầu </th>
+                            <th> Ngày kết thúc </th>
+                            <th> Quản lý </th>
+                            <th> Trạng thái </th>
+                            <th> Thao tác </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var project in ViewBag.chuaht)
+                        {
+                            <tr>
+                                <td> @project.ProjectID </td>
+                                <td> @project.ProjectName </td>
+                                <td> @project.StartDate.ToString("dd/MM/yyyy") </td>
+                                <td> @project.EndDate.ToString("dd/MM/yyyy") </td>
+                                <td> @project.ManagerID </td>
+                                <td>@project.TrangThai</td>
+                                <td>
+                                    <button style="font-family: VNI-Times;" class="btn btn-warning" onclick="showPhieuPhatModal('@project.ProjectID')">Viết phiếu phạt</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal xác nhận xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-family: VNI-Times;" class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa dự án này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary dongmodal" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Thành công</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Phiếu phạt đã được ghi thành công.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hiddenProjectID" name="hiddenProjectID">
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện click cho nút "Đóng"
+        $(".dongmodal").click(function () {
+            $("#confirmDeleteModal").modal('hide'); // Đóng modal
+        });
+    });
+    $(document).ready(function () {
+        $('.deleteButton').on('click', function () {
+            var projectId = $(this).data('id');
+            $('#confirmDeleteButton').attr('data-id', projectId);
+            $('#confirmDeleteModal').modal('show');
+        });
+
+        $('#confirmDeleteButton').on('click', function () {
+            var projectId = $(this).data('id');
+            // Gửi yêu cầu xóa dự án với projectId
+            window.location.href = '/DuAn/Xoa/' + projectId;
+        });
+    });
+    function showPhieuPhatModal(projectID) {
+        $('#phieuPhatModal').modal('show');
+        // Đặt giá trị của projectID vào một trường ẩn trong modal
+        $('#hiddenProjectID').val(projectID);
+    }
+
+    $(document).ready(function () {
+        $('#luuPhieuPhat').click(function () {
+            var projectID = $('#hiddenProjectID').val();
+            var soTien = $('#soTien').val();
+            var lyDo = $('#lyDo').val();
+
+            // Gửi thông tin phiếu phạt lên server để xử lý
+            $.ajax({
+                url: '/Phat/PhatDuAn',
+                data: { projectID: projectID, soTien: soTien, lyDo: lyDo },
+                success: function () {
+                    // Thực hiện các hành động sau khi lưu phiếu phạt thành công (nếu cần)
+                    // Đóng modal
+                    $('#phieuPhatModal').modal('hide');
+                    $('#successModal').modal('show');
+                    window.location.reload();
+                },
+                error: function () {
+                    // Xử lý lỗi (nếu có)
+                    // Hiển thị thông báo hoặc làm gì đó khác (nếu cần)
+                }
+            });
+        });
+    });
+</script>

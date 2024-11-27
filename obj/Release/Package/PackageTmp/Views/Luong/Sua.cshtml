@@ -1,0 +1,21 @@
+﻿@model WebQuanLyNhanSu.Salary
+
+@{
+    ViewBag.Title = "Sửa bảng lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Sửa bảng lương</h2>
+
+@using (Html.BeginForm("Sua", "Luong", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.SalaryID) <!-- Trường ẩn để lưu SalaryID -->
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BasicSalary) <!-- Nhãn cho trường Lương Cơ Bản -->
+        @Html.TextBoxFor(model => model.BasicSalary, new { @class = "form-control", type = "number" }) <!-- Trường nhập liệu cho Lương Cơ Bản -->
+        @Html.ValidationMessageFor(model => model.BasicSalary, "", new { @class = "text-danger" }) <!-- Thông báo lỗi nếu có -->
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+}

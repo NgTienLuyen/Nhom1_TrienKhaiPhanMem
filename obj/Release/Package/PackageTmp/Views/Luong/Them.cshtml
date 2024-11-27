@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Salary>
+
+@{
+    ViewBag.Title = "Thêm mới bảng lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Thêm mới bảng lương</h2>
+
+@using (Html.BeginForm("Them", "Luong", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.Label("Mã Nhân Viên")
+        @Html.TextBox("employeeID", null, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessage("employeeID", "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Lương Cơ Bản")
+        @Html.TextBox("basicSalary", null, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessage("basicSalary", "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu</button>
+}
+

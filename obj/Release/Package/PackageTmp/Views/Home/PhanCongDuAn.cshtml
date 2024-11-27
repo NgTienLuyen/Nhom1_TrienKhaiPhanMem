@@ -1,0 +1,91 @@
+﻿@model List<WebQuanLyNhanSu.PhanCong>
+
+@{
+    ViewBag.Title = "Phân Công Dự Án";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <a style="font-family: VNI-Times;" href="@Url.Action("PhanCong", "DuAn")" class="btn btn-primary">Thêm người vào dự án</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Mã phân công </th>
+                            <th> Mã dự án </th>
+                            <th> Mã nhân viên </th>
+                            <th> Thao tác </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var phanCong in Model)
+                        {
+                            <tr>
+                                <td> @phanCong.MaPC </td>
+                                <td> @phanCong.MaDA </td>
+                                <td> @phanCong.MaNV </td>
+                                <td>
+                                    <!-- Nút sửa -->
+                                    <a href="@Url.Action("SuaPC", "DuAn", new { id = phanCong.MaPC })" class="btn btn-warning">Sửa</a>
+
+                                    <!-- Nút xóa -->
+                                    <button type="button" class="btn btn-danger deleteButton" data-id="@phanCong.MaPC">Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="confirmDeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 style="font-family: VNI-Times;" class="modal-title">Xác Nhận Xóa</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa phân công dự án này không?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default dongmodal" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện click cho nút "Đóng"
+        $(".dongmodal").click(function () {
+            $("#confirmDeleteModal").modal('hide'); // Đóng modal
+        });
+    });
+    // JavaScript code for handling delete button click event
+    $('.deleteButton').click(function () {
+        var id = $(this).data('id');
+        $('#confirmDeleteButton').data('id', id); // Set data-id attribute of delete button in modal
+        $('#confirmDeleteModal').modal('show'); // Show the confirmation modal
+    });
+
+    // JavaScript code for handling confirmation of delete
+    $('#confirmDeleteButton').click(function () {
+        var id = $(this).data('id');
+        // Redirect to delete action with the id parameter
+        window.location.href = '@Url.Action("XoaPC", "DuAn")?id=' + id;
+    });
+</script>

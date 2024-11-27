@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Salary>
+
+@{
+    ViewBag.Title = "Bảng Lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="text-right mb-3">
+                <a style="font-family: VNI-Times;" href="@Url.Action("InFileExcel", "Luong")" class="btn btn-primary">In file Excel</a>
+            </div>
+            <!-- Bảng được bọc trong một div có thanh cuộn dọc -->
+            <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã Nhân Viên</th>
+                            <th>Lương Cơ Bản</th>
+                            <th>Thưởng</th>
+                            <th>Phạt</th>
+                            <th>Tiền công làm</th>
+                            <th>Tiền OT</th>
+                            <th>Tiền làm ngày lễ</th>
+                            <th>Khấu trừ</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var salary in Model)
+                        {
+                            <tr>
+                                <td>@salary.EmployeeID</td>
+                                <td>@(salary.BasicSalary ?? 0)</td>
+                                <td>@(salary.Bonus ?? 0)</td>
+                                <td>@(salary.Phat ?? 0)</td>
+                                <td>@((salary.SoGioLam ?? 0) * (salary.BasicSalary ?? 0))</td>
+                                <td>@((salary.OT ?? 0) * 2 * (salary.BasicSalary ?? 0))</td>
+                                <td>@((salary.GioNgayLe ?? 0) * 3 * (salary.BasicSalary ?? 0))</td>
+                                <td>@(salary.Deductions ?? 0)</td>
+                                <td>
+                                    @(
+                                        ((salary.SoGioLam ?? 0) * (salary.BasicSalary ?? 0)
+                                         + (salary.OT ?? 0) * 2 * (salary.BasicSalary ?? 0)
+                                         + (salary.GioNgayLe ?? 0) * 3 * (salary.BasicSalary ?? 0)
+                                         + (salary.Bonus ?? 0)
+                                         - (salary.Phat ?? 0))
+                                         - (salary.Deductions ?? 0)
+                                     )
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

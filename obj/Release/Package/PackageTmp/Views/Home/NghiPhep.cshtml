@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Leave>
+
+@{
+    ViewBag.Title = "Danh sách nghỉ phép";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Mã nghỉ phép </th>
+                            <th> Mã nhân viên </th>
+                            <th> Loại nghỉ phép </th>
+                            <th> Ngày bắt đầu </th>
+                            <th> Ngày kết thúc </th>
+                            <th> Trạng thái </th>
+                            <th> Thao tác </th> <!-- Thêm cột thao tác -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var leave in Model)
+                        {
+                            <tr>
+                                <td> @leave.LeaveID </td>
+                                <td> @leave.EmployeeID </td>
+                                <td> @leave.LeaveType </td>
+                                <td> @leave.StartDate.Value.ToString("dd/MM/yyyy")</td>
+                                <td> @leave.EndDate.Value.ToString("dd/MM/yyyy") </td>
+                                <td> @leave.Status </td>
+                                <td>
+                                    <!-- Cột thao tác -->
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Duyet", "NghiPhep", new { id = leave.LeaveID })" class="btn btn-success">Duyệt</a>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("KhongDuyet", "NghiPhep", new { id = leave.LeaveID })" class="btn btn-danger">Hủy</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

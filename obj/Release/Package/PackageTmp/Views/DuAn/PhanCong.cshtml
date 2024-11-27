@@ -1,0 +1,27 @@
+﻿@model WebQuanLyNhanSu.PhanCong
+
+@{
+    ViewBag.Title = "Thêm Phân Công Dự Án";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Thêm Phân Công Dự Án</h2>
+
+@using (Html.BeginForm("PhanCong", "DuAn", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaDA)
+        @Html.TextBoxFor(model => model.MaDA, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.MaDA, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaNV)
+        @Html.TextBoxFor(model => model.MaNV, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm</button>
+}

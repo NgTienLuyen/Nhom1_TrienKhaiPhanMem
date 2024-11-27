@@ -1,0 +1,207 @@
+﻿@{
+    ViewBag.Title = "Trang Nhân Viên";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Link thư viện Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- CSS tùy chỉnh -->
+    <style>
+        body {
+            background: url('https://png.pngtree.com/thumb_back/fw800/background/20230721/pngtree-minimalistic-3d-render-of-a-contemporary-work-space-interior-image_3723441.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header-bg {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header {
+            padding: 20px 0;
+            color: #e3f2fd;
+            text-align: left; /* Đổi từ center sang left */
+        }
+
+        .main-content {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .main-content:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+        .btn-primary {
+            background-color: rgba(0, 123, 255, 0.8); /* Màu xanh với độ trong suốt 80% */
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .btn-secondary {
+            background-color: rgba(108, 117, 125, 0.8); /* Màu xám với độ trong suốt 80% */
+            border: none;
+            border-radius: 30px;
+            padding: 12px 24px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.8); /* Màu trắng với độ trong suốt 80% */
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        .card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Giảm kích thước card để cân đối */
+            gap: 20px; /* Khoảng cách giữa các card */
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-right: 20px; /* Thêm khoảng cách giữa logo và tiêu đề */
+            margin-bottom: 10px; /* Khoảng cách giữa logo và tiêu đề */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row header-bg">
+            <div class="col-md-6 d-flex align-items-center">
+                <img src="~/assets/images/cmc.png" alt="Logo" class="logo"> <!-- Thay đổi đường dẫn đến logo -->
+                <h1 class="page-header">Trang Nhân Viên</h1> <!-- Tiêu đề -->
+            </div>
+            <div class="col-md-6 text-right">
+                <!-- Dropdown với ảnh đại diện hoặc icon người dùng -->
+                <div class="dropdown d-inline"> 
+                    <!-- Dòng chữ "Xin chào bạn!" -->
+                    <span style="color: white; font-weight: bold; margin-right: 10px;">Xin chào bạn!</span>
+
+                    <a href="#"
+                       style="background-color: #2196F3; border-radius: 50%; padding: 10px; transition: all 0.3s ease; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); color: white;"
+                       class="btn text-white dropdown-toggle"
+                       id="userDropdown"
+                       data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-user-circle fa-2x" style="color: white;"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="@Url.Action("XemTT", "NhanVien")">Xem Thông Tin Cá Nhân</a>
+                        <a class="dropdown-item" href="@Url.Action("DangXuat", "Home")">Đăng Xuất</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="main-content mt-4">
+            <div class="card-container mt-4">
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Chấm Công</h5>
+                            <p class="card-text">Nhấn vào nút dưới để chấm công và xem lịch làm việc.</p>
+                            <a href="~/NhanVien/ChamCong" class="btn btn-primary">Chấm Công</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Viết Đơn Xin Nghỉ</h5>
+                            <p class="card-text">Nhấn vào nút dưới để viết đơn xin nghỉ phép.</p>
+                            <a href="~/NhanVien/VietDon" class="btn btn-primary">Viết Đơn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Xem Bảng Lương</h5>
+                            <p class="card-text">Xem bảng lương của bạn để biết thông tin chi tiết về thu nhập của mình.</p>
+                            <a href="~/NhanVien/XemBL" class="btn btn-primary">Xem Bảng Lương</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Đổi Mật Khẩu</h5>
+                            <p class="card-text">Đổi mật khẩu để bảo mật tài khoản của bạn, nhân viên phải đổi mật khẩu định kì.</p>
+                            <a href="~/NhanVien/DoiMK" class="btn btn-secondary">Đổi Mật Khẩu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Xem Thông Tin Cá Nhân</h5>
+                            <p class="card-text">Xem thông tin cá nhân của bạn để cập nhật hoặc chỉnh sửa.</p>
+                            <a href="~/NhanVien/XemTT" class="btn btn-secondary">Xem Thông Tin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Xem phiếu thưởng và phiếu phạt</h5>
+                            <p class="card-text">Nhấn vào nút dưới để xem chi tiết, lương được tính đến ngày hiện tại.</p>
+                            <a href="~/NhanVien/XemKTKL" class="btn btn-primary">Xem</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Thư viện jQuery và Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

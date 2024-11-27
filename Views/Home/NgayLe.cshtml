@@ -1,0 +1,102 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.NgayLe>
+
+@{
+    ViewBag.Title = "Danh sách ngày lễ";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="text-right">
+                <a style="font-family: VNI-Times;" href="@Url.Action("Them", "NgayLe")" class="btn btn-primary">Thêm mới</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên ngày lễ</th>
+                            <th>Ngày bắt đầu</th>
+                            <th>Ngày kết thúc</th>
+                            <th>Hệ số</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ngayLe in Model)
+                        {
+                            <tr>
+                                <td>@ngayLe.MaNgay</td>
+                                <td>@ngayLe.TenNgayLe</td>
+                                <td>@ngayLe.NgayBatDau.ToString("dd/MM/yyyy")</td>
+                                <td>@ngayLe.NgayKetThuc.ToString("dd/MM/yyyy")</td>
+                                <td>@ngayLe.HeSo</td>
+                                <td>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Sua", "NgayLe", new { id = ngayLe.MaNgay })" class="btn btn-warning">Sửa</a>
+                                    <button style="font-family: VNI-Times;" class="btn btn-danger" onclick="showConfirmDeleteModal('@ngayLe.MaNgay')">Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Modal Xác nhận Xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5  style="font-family: VNI-Times;" class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa mục này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary dongmodal" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showConfirmDeleteModal(id) {
+        $('#confirmDeleteButton').attr('data-id', id);
+        $('#confirmDeleteModal').modal('show');
+    }
+    $(document).ready(function () {
+        // Xử lý sự kiện click cho nút "Đóng"
+        $(".dongmodal").click(function () {
+            $("#confirmDeleteModal").modal('hide'); // Đóng modal
+        });
+    });
+    $('#confirmDeleteButton').on('click', function () {
+        var id = $(this).attr('data-id');
+        // Gửi yêu cầu xóa ngày lễ với id
+        $.ajax({
+            url: '/NgayLe/Xoa/' + id,
+            success: function () {
+                // Thực hiện các hành động sau khi xóa thành công
+                // Đóng modal
+                $('#confirmDeleteModal').modal('hide');
+                // Hiển thị thông báo hoặc làm gì đó khác (nếu cần)
+                window.location.reload(); // Tải lại trang để cập nhật danh sách
+            },
+            error: function () {
+                // Xử lý lỗi (nếu có)
+                // Hiển thị thông báo hoặc làm gì đó khác (nếu cần)
+            }
+        });
+    });
+</script>

@@ -1,0 +1,63 @@
+﻿@model WebQuanLyNhanSu.Salary
+
+@{
+    ViewBag.Title = "Sửa Bảng Lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Sửa Bảng Lương</h4>
+            @using (Html.BeginForm("Sua", "Luong", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(m => m.SalaryID) <!-- Thêm hidden field để lưu ID của bảng lương -->
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.EmployeeID, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.EmployeeID, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BasicSalary, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.BasicSalary, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Bonus, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Bonus, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Phat, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Phat, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Deductions, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Deductions, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SoGioLam, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.SoGioLam, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OT, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.OT, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GioNgayLe, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.GioNgayLe, new { @class = "form-control" })
+                </div>
+
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a href="@Url.Action("BangLuong", "Home")" class="btn btn-secondary">Hủy</a>
+            }
+        </div>
+    </div>
+</div>

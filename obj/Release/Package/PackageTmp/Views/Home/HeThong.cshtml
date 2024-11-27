@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@model IEnumerable<WebQuanLyNhanSu.UserAccount>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <a style="font-family: VNI-Times;" href="@Url.Action("Them", "HeThong")" class="btn btn-primary">Thêm người dùng</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Tên người dùng </th>
+                            <th> Mật khẩu </th>
+                            <th> Mã nhân viên </th>
+                            <th> Thao tác </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td> @user.Username </td>
+                                <td> @user.Password </td>
+                                <td> @user.EmployeeID </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger deleteButton" data-toggle="modal" data-target="#confirmDeleteModal" data-id="@user.UserID">Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-family: VNI-Times;" class="modal-title" id="confirmDeleteModalLabel">Xác Nhận Xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa người dùng này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary dongmodal" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện click cho nút "Đóng"
+        $(".dongmodal").click(function () {
+            $("#confirmDeleteModal").modal('hide'); // Đóng modal
+        });
+    });
+    $(document).ready(function () {
+        $('.deleteButton').click(function () {
+            var userID = $(this).data('id');
+            $('#confirmDeleteModal').data('userid', userID);
+        });
+
+$('#deleteConfirmButton').click(function () {
+    var userID = $('#confirmDeleteModal').data('userid');
+    // Gọi hàm xóa người dùng với ID là userID
+    $.ajax({
+        url: "@Url.Action("Xoa", "HeThong")", // Điều chỉnh URL tương ứng với action của bạn
+        type: "POST",
+        data: { id: userID },
+        success: function (result) {
+            // Xử lý khi xóa thành công
+            // Ví dụ: Reload trang để cập nhật danh sách người dùng
+            window.location.reload();
+        },
+        error: function (xhr, status, error) {
+            // Xử lý khi xảy ra lỗi
+            console.error("Đã xảy ra lỗi khi xóa người dùng:", error);
+        }
+    });
+});
+
+    });
+</script>

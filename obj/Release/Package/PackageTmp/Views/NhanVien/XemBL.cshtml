@@ -1,0 +1,35 @@
+﻿@model WebQuanLyNhanSu.Salary
+
+@{
+    ViewBag.Title = "Xem Bảng Lương";
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS tùy chỉnh -->
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Bảng Lương</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Mã Lương: @Model.SalaryID</li>
+                        <li class="list-group-item">Mã Nhân Viên: @Model.EmployeeID</li>
+                        <li class="list-group-item">Lương Cơ Bản: @((double)Model.BasicSalary)</li>
+                        <li class="list-group-item">Thưởng: @((double)Model.Bonus)</li>
+                        <li class="list-group-item">Phạt: @((double)Model.Phat)</li>
+                        <li class="list-group-item">Khấu Trừ: @((double)Model.Deductions) %</li>
+                        <li class="list-group-item">Số Giờ Làm: @Model.SoGioLam</li>
+                        <li class="list-group-item">Số Giờ OT: @Model.OT</li>
+                        <li class="list-group-item">Số Giờ Làm Ngày Lễ: @Model.GioNgayLe</li>
+                        <li class="list-group-item">Tổng Số Giờ Làm: @Model.TongSoGioLam</li>
+                    </ul>
+                    <a class="btn btn-primary" href="~/NhanVien/Index">Quay lại</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

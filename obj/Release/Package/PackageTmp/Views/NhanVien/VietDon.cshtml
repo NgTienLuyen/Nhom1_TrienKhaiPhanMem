@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Leave>
+
+@{
+    ViewBag.Title = "Viết Đơn Xin Nghỉ";
+
+}
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Viết Đơn Xin Nghỉ</h5>
+                </div>
+                <div class="card-body">
+                    <form action="@Url.Action("VietDon", "NhanVien")" method="post">
+                        <div class="form-group">
+                            <label for="leaveType">Lí do nghỉ</label>
+                            <input type="text" class="form-control" id="leaveType" name="LeaveType" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Ngày Bắt Đầu</label>
+                            <input type="date" class="form-control" id="startDate" name="StartDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">Ngày Kết Thúc</label>
+                            <input type="date" class="form-control" id="endDate" name="EndDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi Đơn Xin Nghỉ</button>
+                        <a class="btn btn-primary" href="~/NhanVien/Index">Quay lại</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh sách đơn nghỉ đã xin</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã Đơn</th>
+                        <th>Lí do nghỉ</th>
+                        <th>Ngày Bắt Đầu</th>
+                        <th>Ngày Kết Thúc</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var leave in Model)
+                    {
+                        <tr>
+                            <td>@leave.LeaveID</td>
+                            <td>@leave.LeaveType</td>
+                            <td>@leave.StartDate.Value.ToString("dd/MM/yyyy")</td>
+                            <td>@leave.EndDate.Value.ToString("dd/MM/yyyy")</td>
+                            <th>@leave.Status</th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

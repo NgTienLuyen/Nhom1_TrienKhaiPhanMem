@@ -1,0 +1,95 @@
+﻿@model IEnumerable<RewardsPenalty>
+
+@{
+    ViewBag.Title = "Xem Khen Thưởng và Phạt";
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-header {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+            .card-header.punishment {
+                background-color: #dc3545;
+            }
+
+        .list-group-item {
+            border: none;
+            padding: 0.75rem 1.25rem;
+            transition: background-color 0.2s ease;
+        }
+
+            .list-group-item:hover {
+                background-color: #f8f9fa;
+            }
+
+        .card {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-section {
+            margin-top: 2rem;
+        }
+
+            .info-section h3 {
+                color: #333;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                border-bottom: 2px solid #007bff;
+                display: inline-block;
+                padding-bottom: 5px;
+            }
+    </style>
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mb-4 text-center">Danh sách Khen Thưởng và Phạt</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Khen Thưởng
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.Where(k => k.Type == "Khen"))
+                            {
+                                <li class="list-group-item">
+                                    <strong>Mã:</strong> @item.RewardPenaltyID -
+                                    <strong>Số Tiền:</strong> @item.Amount -
+                                    <strong>Lý Do:</strong> @item.Reason -
+                                    <strong>Ngày:</strong> @item.Ngay.Value.ToString("dd/MM/yyyy")
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header punishment">
+                            Phạt
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            @foreach (var item in Model.Where(k => k.Type == "Phạt"))
+                            {
+                                <li class="list-group-item">
+                                    <strong>Mã:</strong> @item.RewardPenaltyID -
+                                    <strong>Số Tiền:</strong> @item.Amount -
+                                    <strong>Lý Do:</strong> @item.Reason -
+                                    <strong>Ngày:</strong> @item.Ngay.Value.ToString("dd/MM/yyyy")
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shCk+5Qil8wZp5nBo/lC1DE0R3E6dJMI2tXJs" crossorigin="anonymous"></script>

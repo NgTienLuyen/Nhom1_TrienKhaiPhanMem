@@ -1,0 +1,284 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+
+@model PagedList.IPagedList<WebQuanLyNhanSu.Attendance>
+@{
+    ViewBag.Title = "Lịch chấm công";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Làm Việc Nhân Viên</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+            .table tbody tr:hover {
+                background-color: #e9ecef;
+            }
+
+        .btn-custom {
+            display: flex;
+            align-items: center;
+        }
+
+            .btn-custom i {
+                margin-right: 5px;
+            }
+
+        .calendar-container {
+            margin-top: 20px;
+        }
+
+        .datepicker {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .datepicker-days .table-condensed {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1>Lịch Làm Việc Nhân Viên</h1>
+                    </div>
+                    <div class="card-body">
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-success">@TempData["Message"]</div>
+                        }
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>Ngày</th>
+                                        <th>Giờ vào</th>
+                                        <th>Giờ ra</th>
+                                        <th>Timer</th>
+                                        <th>Đi trễ</th>
+                                        <th>Về sớm</th>
+                                        <th>OT</th>
+                                        <th>Chấm công</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null && Model.Any())
+                                    {
+                                        int index = Model.PageNumber == 1 ? 0 : (Model.PageNumber - 1) * Model.PageSize;
+                                        var today = DateTime.Now.Date;
+                                        bool hasTodayAttendance = false;
+
+                                        foreach (var attendance in Model)
+                                        {
+                                            var attendanceDate = DateTime.ParseExact(attendance.Ngay?.ToString("dd/MM/yyyy") ?? "", "dd/MM/yyyy", null);
+                                            if (attendanceDate == today)
+                                            {
+                                                hasTodayAttendance = true;
+                                            }
+                                        }
+
+                                        foreach (var attendance in Model)
+                                        {
+                                            var attendanceDate = DateTime.ParseExact(attendance.Ngay?.ToString("dd/MM/yyyy") ?? "", "dd/MM/yyyy", null);
+                                            <tr>
+                                                <td>@attendance.Ngay</td>
+                                                <td>@(attendance.CheckIn != null ? attendance.CheckIn.ToString() : "Chưa chấm công")</td>
+                                                <td>@(attendance.CheckOut != null ? attendance.CheckOut.ToString() : "Chưa chấm công")</td>
+                                                <td>@attendance.Timer</td>
+                                                <td>@attendance.DiTre</td>
+                                                <td>@attendance.VeSom</td>
+                                                <td>@attendance.OT</td>
+                                                <td>
+                                                    @if (attendance.CheckIn != null && attendance.CheckOut != null)
+                                                    {
+                                                        <span>Đã Khóa</span>
+                                                    }
+                                                    else if (attendanceDate == today)
+                                                    {
+                                                        if (attendance.CheckIn == null)
+                                                        {
+                                                            <button id="checkin-btn-@index" class="btn btn-custom btn-primary" onclick="checkIn(@index)"><i class="fas fa-sign-in-alt"></i> Check In</button>
+                                                            <div id="checkin-time-@index"></div>
+                                                            <button id="checkout-btn-@index" class="btn btn-secondary" disabled><i class="fas fa-sign-out-alt"></i> Check Out</button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button id="checkin-btn-@index" class="btn btn-custom btn-primary" disabled><i class="fas fa-sign-in-alt"></i> Check In</button>
+                                                            <div id="checkin-time-@index"></div>
+                                                            <button id="checkout-btn-@index" class="btn btn-custom btn-secondary" onclick="checkOut(@index)"><i class="fas fa-sign-out-alt"></i> Check Out</button>
+                                                            <div id="checkout-time-@index"></div>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Đã Khóa</span>
+                                                    }
+                                                </td>
+                                            </tr>
+                                            index++;
+                                        }
+
+                                        if (Model.PageNumber == Model.PageCount && !hasTodayAttendance)
+                                        {
+                                            <tr>
+                                                <td>@today.ToString("dd/MM/yyyy")</td>
+                                                <td>Chưa chấm công</td>
+                                                <td>Chưa chấm công</td>
+                                                <td>Chưa có</td>
+                                                <td>Chưa có</td>
+                                                <td>Chưa có</td>
+                                                <td>Chưa có</td>
+                                                <td>
+                                                    <button id="checkin-btn-@index" class="btn btn-custom btn-primary" onclick="checkIn(@index)"><i class="fas fa-sign-in-alt"></i> Check In</button>
+                                                    <div id="checkin-time-@index"></div>
+                                                    <button id="checkout-btn-@index" class="btn btn-secondary" disabled><i class="fas fa-sign-out-alt"></i> Check Out</button>
+                                                </td>
+                                            </tr>
+                                            index++;
+                                        }
+
+                                        if (Model.PageNumber == Model.PageCount)
+                                        {
+                                            for (int i = 1; i <= 7; i++)
+                                            {
+                                                var nextDate = DateTime.Now.AddDays(i).Date;
+                                                <tr>
+                                                    <td>@nextDate.ToString("dd/MM/yyyy")</td>
+                                                    <td>Chưa chấm công</td>
+                                                    <td>Chưa chấm công</td>
+                                                    <td>Chưa có</td>
+                                                    <td>Chưa có</td>
+                                                    <td>Chưa có</td>
+                                                    <td>Chưa có</td>
+                                                    <td><span>Chưa đến ngày làm việc</span></td>
+                                                </tr>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        var today = DateTime.Now.Date;
+
+                                        <tr>
+                                            <td>@today.ToString("dd/MM/yyyy")</td>
+                                            <td>Chưa chấm công</td>
+                                            <td>Chưa chấm công</td>
+                                            <td>Chưa có</td>
+                                            <td>Chưa có</td>
+                                            <td>Chưa có</td>
+                                            <td>Chưa có</td>
+                                            <td>
+                                                <button id="checkin-btn-0" class="btn btn-custom btn-primary" onclick="checkIn(0)"><i class="fas fa-sign-in-alt"></i> Check In</button>
+                                                <button id="checkout-btn-0" class="btn btn-secondary" disabled><i class="fas fa-sign-out-alt"></i> Check Out</button>
+                                                <div id="checkin-time-0"></div>
+                                                <div id="checkout-time-0"></div>
+                                            </td>
+                                        </tr>
+
+                                        for (int i = 1; i <= 7; i++)
+                                        {
+                                            var nextDate = DateTime.Now.AddDays(i).Date;
+                                            <tr>
+                                                <td>@nextDate.ToString("dd/MM/yyyy")</td>
+                                                <td>Chưa chấm công</td>
+                                                <td>Chưa chấm công</td>
+                                                <td>Chưa có</td>
+                                                <td>Chưa có</td>
+                                                <td>Chưa có</td>
+                                                <td>Chưa có</td>
+                                                <td><span>Chưa đến ngày làm việc</span></td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            @Html.PagedListPager(Model, page => Url.Action("ChamCong", new { page }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 calendar-container">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Chọn ngày</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="datepicker"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datepicker').datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                autoclose: true
+            });
+        });
+
+        const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+
+        function checkIn(index) {
+            const now = new Date().toLocaleTimeString('vi-VN', timeOptions);
+            document.getElementById(`checkin-time-${index}`).textContent = now;
+            document.getElementById(`checkin-btn-${index}`).disabled = true; // Disable Check In button
+            document.getElementById(`checkout-btn-${index}`).disabled = false; // Enable Check Out button
+            window.location.href = '/CheckIn/Index?day=' + index + '&time=' + now; // Navigate to CheckIn
+        }
+
+        function checkOut(index) {
+            const now = new Date().toLocaleTimeString('vi-VN', timeOptions);
+            document.getElementById(`checkout-time-${index}`).textContent = now;
+            document.getElementById(`checkout-btn-${index}`).disabled = true; // Disable Check Out button after checking out
+            window.location.href = '/CheckIn/Checkout?day=' + index + '&time=' + now; // Navigate to CheckOut
+        }
+    </script>
+</body>
+</html>

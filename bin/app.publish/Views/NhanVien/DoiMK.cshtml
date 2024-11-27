@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Đổi Mật Khẩu";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Link thư viện Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Đổi Mật Khẩu</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.ErrorMessage
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @ViewBag.SuccessMessage
+                            </div>
+                        }
+
+                        <!-- Form đổi mật khẩu -->
+                        <form action="@Url.Action("DoiMK", "NhanVien")" method="post">
+                            <div class="form-group">
+                                <label for="oldPassword">Mật Khẩu Cũ</label>
+                                <input type="password" class="form-control" id="oldPassword" name="oldPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Mật Khẩu Mới</label>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Xác Nhận Mật Khẩu Mới</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Đổi Mật Khẩu</button>
+                            <a class="btn btn-primary" href="~/NhanVien/Index">Quay lại</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link thư viện jQuery và Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

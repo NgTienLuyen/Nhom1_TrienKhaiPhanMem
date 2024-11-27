@@ -1,0 +1,107 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Salary>
+
+@{
+    ViewBag.Title = "Bảng Lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="text-right mb-3">
+                <a style="font-family: VNI-Times;" href="@Url.Action("Them", "Luong")" class="btn btn-primary">Thêm mới</a>
+            </div>
+
+            <!-- Thêm thanh cuộn cho bảng -->
+            <div class="table-responsive" style="max-height: 400px; overflow-y: auto; overflow-x: auto; border: 1px solid #ddd;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã Nhân Viên</th>
+                            <th>Lương Cơ Bản</th>
+                            <th>Thưởng</th>
+                            <th>Phạt</th>
+                            <th>Khấu Trừ</th>
+                            <th>Số giờ làm</th>
+                            <th>OT</th>
+                            <th>Giờ ngày lễ</th>
+                            <th>Tổng số giờ làm</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var salary in Model)
+                        {
+                            <tr>
+                                <td>@salary.EmployeeID</td>
+                                <td>@(salary.BasicSalary ?? 0)</td>
+                                <td>@(salary.Bonus ?? 0)</td>
+                                <td>@(salary.Phat ?? 0)</td>
+                                <td>@(salary.Deductions ?? 0)</td>
+                                <td>@(salary.SoGioLam ?? 0)</td>
+                                <td>@(salary.OT ?? 0)</td>
+                                <td>@(salary.GioNgayLe ?? 0)</td>
+                                <td>@(salary.TongSoGioLam ?? 0)</td>
+                                <td>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Sua", "Luong", new { id = salary.SalaryID })" class="btn btn-warning">Sửa</a>
+                                    <a style="font-family: VNI-Times;" href="#" class="btn btn-danger" data-salary-id="@salary.SalaryID">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Xác nhận Xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa mục này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.btn-danger').on('click', function () {
+            var id = $(this).data('salary-id');
+            $('#confirmDeleteButton').attr('data-id', id);
+            $('#confirmDeleteModal').modal('show');
+            return false; // Ngăn chặn hành vi mặc định của liên kết
+        });
+
+        $('#confirmDeleteButton').on('click', function () {
+            var id = $(this).attr('data-id');
+            // Gửi yêu cầu xóa lương với id
+            $.ajax({
+                url: '/Luong/Xoa/' + id,
+                success: function () {
+                    // Thực hiện các hành động sau khi xóa thành công
+                    // Đóng modal
+                    $('#confirmDeleteModal').modal('hide');
+                    // Tải lại trang để cập nhật danh sách
+                    window.location.reload();
+                },
+                error: function () {
+                    // Xử lý lỗi (nếu có)
+                    alert("Xóa không thành công. Vui lòng thử lại.");
+                }
+            });
+        });
+    });
+</script>

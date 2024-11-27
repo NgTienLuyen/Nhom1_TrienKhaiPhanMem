@@ -1,0 +1,115 @@
+﻿@model WebQuanLyNhanSu.Salary
+
+@{
+    ViewBag.Title = "Xem Bảng Lương";
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-lg border-primary">
+                <div class="card-header bg-primary text-white text-center">
+                    <h5 class="mb-0">Bảng Lương Tháng @DateTime.Now.ToString("MM/yyyy")</h5> <!-- Hiển thị tháng hiện tại -->
+                </div>
+                <div class="card-body">
+                    <h6 class="text-center text-muted">Ngày hiện tại: @DateTime.Now.ToString("dd/MM/yyyy")</h6>
+                    <h6 class="text-center text-danger" style="font-size: 0.85rem;">Lưu ý: Lương được tính cho đến ngày hiện tại !!!</h6>
+
+                    <!-- Form chọn tháng và năm (tùy chọn, có thể loại bỏ nếu không cần thiết) -->
+                    <form method="get" action="@Url.Action("XemBL", "NhanVien")" class="text-center mb-4">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <select name="month" class="form-control">
+                                    <option value="">Chọn tháng</option>
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <option value="@i" @(i == DateTime.Now.Month ? "selected" : "")>@i</option>
+ <!-- Chọn tháng hiện tại -->
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="year" class="form-control">
+                                    <option value="">Chọn năm</option>
+                                    @for (int i = DateTime.Now.Year - 10; i <= DateTime.Now.Year; i++)
+                                    {
+                                        <option value="@i" @(i == DateTime.Now.Year ? "selected" : "")>@i</option>
+ <!-- Chọn năm hiện tại -->
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-search"></i> Xem</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Bảng lương -->
+                    @if (Model != null)
+                    {
+                        <table class="table table-striped table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Thông Tin</th>
+                                    <th>Giá Trị</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-id-card"></i> Mã Lương</td>
+                                    <td>@Model.SalaryID</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-user"></i> Mã Nhân Viên</td>
+                                    <td>@Model.EmployeeID</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-money-bill-wave"></i> Lương Cơ Bản</td>
+                                    <td>@((double)Model.BasicSalary) VND</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-gift"></i> Thưởng</td>
+                                    <td>@((double)Model.Bonus) VND</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-exclamation-triangle"></i> Phạt</td>
+                                    <td>@((double)Model.Phat) VND</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-minus-circle"></i> Khấu Trừ</td>
+                                    <td>@Model.Deductions %</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-clock"></i> Số Giờ Làm</td>
+                                    <td>@Model.SoGioLam</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-clock"></i> Số Giờ OT</td>
+                                    <td>@Model.OT</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-calendar-day"></i> Số Giờ Làm Ngày Lễ</td>
+                                    <td>@Model.GioNgayLe</td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-clock"></i> Tổng Số Giờ Làm</td>
+                                    <td>@Model.TongSoGioLam</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <h6 class="text-center text-danger">Không tìm thấy bảng lương cho tháng hiện tại.</h6> <!-- Thông báo nếu không có dữ liệu -->
+                    }
+
+                    <div class="text-center mt-4">
+                        <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "NhanVien")"><i class="fas fa-arrow-left"></i> Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

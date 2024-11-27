@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Trang Nhân Viên";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <!-- Link thư viện Bootstrap CSS -->
+
+    <!-- CSS tùy chỉnh -->
+    <style>
+        .page-header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+            margin-bottom: 40px;
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+            .btn-secondary:hover {
+                background-color: #545b62;
+                border-color: #545b62;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="main-content">
+                    <h1 class="page-header">Trang Nhân Viên</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Viết Đơn Xin Nghỉ</h5>
+                                    <p class="card-text">Nhấn vào nút dưới để viết đơn xin nghỉ phép.</p>
+                                    <a href="~/NhanVien/VietDon" class="btn btn-primary">Viết Đơn</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Xem Bảng Lương</h5>
+                                    <p class="card-text">Xem bảng lương của bạn để biết thông tin chi tiết về thu nhập của mình.</p>
+                                    <a href="~/NhanVien/XemBL" class="btn btn-primary">Xem Bảng Lương</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Đổi Mật Khẩu</h5>
+                                    <p class="card-text">Đổi mật khẩu để bảo mật tài khoản của bạn.</p>
+                                    <a href="~/NhanVien/DoiMK" class="btn btn-secondary">Đổi Mật Khẩu</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Xem Thông Tin Cá Nhân</h5>
+                                    <p class="card-text">Xem thông tin cá nhân của bạn để cập nhật hoặc chỉnh sửa.</p>
+                                    <a href="~/NhanVien/XemTT" class="btn btn-secondary">Xem Thông Tin</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Xem phiếu thưởng và phiếu phạt</h5>
+                                    <p class="card-text">Nhấn vào nút dưới để xem chi tiết.</p>
+                                    <a href="~/NhanVien/XemKTKL" class="btn btn-primary">Xem</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link thư viện jQuery và Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

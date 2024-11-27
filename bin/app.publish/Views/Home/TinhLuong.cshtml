@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Salary>
+
+@{
+    ViewBag.Title = "Bảng Lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="text-right mb-3">
+                <a style="font-family: VNI-Times;" href="@Url.Action("InFileExcel", "Luong")" class="btn btn-primary">In file Excel</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã Nhân Viên</th>
+                            <th>Lương Cơ Bản</th>
+                            <th>Thưởng</th>
+                            <th>Phạt</th>
+                            <th>Tiền công làm</th>
+                            <th>Tiền OT</th>
+                            <th>Tiền làm ngày lễ</th>
+                            <th>Khấu trừ</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var salary in Model)
+                        {
+                            <tr>
+                                <td>@salary.EmployeeID</td>
+                                <td>@((double)(salary.BasicSalary))</td>
+                                <td>@((double)(salary.Bonus))</td>
+                                <td>@((double)(salary.Phat))</td>
+                                <td>@((double)(salary.SoGioLam * salary.BasicSalary))</td>
+                                <td>@((double)(salary.OT * 2 * salary.BasicSalary))</td>
+                                <td>@((double)(salary.GioNgayLe * 3 * salary.BasicSalary) )</td>
+                                <td>@((double)(salary.Deductions))</td>
+                                <td>@( (double)(salary.SoGioLam * salary.BasicSalary + salary.OT * 2 * salary.BasicSalary + salary.GioNgayLe * 3 * salary.BasicSalary
+                                 + salary.Bonus - salary.Phat) * 0.895 )</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

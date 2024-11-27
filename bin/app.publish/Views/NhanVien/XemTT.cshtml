@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Cá Nhân";
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">Thông Tin Cá Nhân</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">Thông Tin Cá Nhân</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Mã Nhân Viên: @ViewBag.TT.EmployeeID</li>
+                        <li class="list-group-item">Họ và Tên: @ViewBag.TT.FirstName @ViewBag.TT.LastName</li>
+                        <li class="list-group-item">Ngày Sinh: @ViewBag.TT.BirthDate.ToString("dd/MM/yyyy")</li>
+                        <li class="list-group-item">Địa Chỉ: @ViewBag.TT.Address</li>
+                        <li class="list-group-item">Số Điện Thoại: @ViewBag.TT.PhoneNumber</li>
+                        <li class="list-group-item">CCCD: @ViewBag.TT.CCCD</li>
+                        <li class="list-group-item">Nơi Cấp: @ViewBag.TT.NoiCap</li>
+                        <li class="list-group-item">Ngày Đăng Ký CCCD: @ViewBag.TT.NgayDK.ToString("dd/MM/yyyy")</li>
+                        <li class="list-group-item">Ngày Kí Hợp Đồng: @ViewBag.TT.NgayKi.ToString("dd/MM/yyyy")</li>
+                        <li class="list-group-item">Ngày Hết Hạn Hợp Đồng: @ViewBag.TT.NgayHetHan.ToString("dd/MM/yyyy")</li>
+                        <li class="list-group-item">Email: @ViewBag.TT.Email</li>
+                        <li class="list-group-item">Chức Vụ: @ViewBag.TT.ChucVu</li>
+                        <li class="list-group-item">Giới Tính: @ViewBag.TT.GioiTinh</li>
+                        <li class="list-group-item">Dân Tộc: @ViewBag.TT.DanToc</li>
+                        <li class="list-group-item">Học Vấn: @ViewBag.TT.HocVan</li>
+                        <li class="list-group-item">Số phòng ban: @ViewBag.TT.DepartmentID</li>
+                    </ul>
+
+                    <h6 class="card-subtitle mb-2 mt-4 text-muted">Phần BHXH</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Mã BHXH: @ViewBag.CD.MaCD</li>
+                        <li class="list-group-item">Ngày Cấp: @ViewBag.CD.NgayCap.ToString("dd/MM/yyyy")</li>
+                        <li class="list-group-item">Nơi Cấp: @ViewBag.CD.NoiCap</li>
+                    </ul>
+
+                    <h6 class="card-subtitle mb-2 mt-4 text-muted">Phân Công Công Việc</h6>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var item in ViewBag.PC)
+                        {
+                            <li class="list-group-item">Mã Phân Công: @item.MaPC</li>
+                            <li class="list-group-item">Mã Dự Án: @item.MaDA</li>
+                        }
+                    </ul>
+                    <a class="btn btn-primary" href="~/NhanVien/Index">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

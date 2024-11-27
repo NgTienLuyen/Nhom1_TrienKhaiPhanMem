@@ -1,0 +1,59 @@
+﻿@model List<WebQuanLyNhanSu.Department>
+
+@{
+    ViewBag.Title = "Danh sách phòng ban";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <a href="@Url.Action("Them", "BoPhan")" class="btn btn-primary">Thêm phòng ban</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Mã phòng ban </th>
+                            <th> Tên phòng ban </th>
+                            <th> Trạng thái </th>
+                            <th> Ngày thành lập </th>
+                            <th> Thao tác </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var department in Model)
+                        {
+                            <tr>
+                                <td> @department.DepartmentID </td>
+                                <td> @department.DepartmentName </td>
+                                <td> @department.TrangThai </td>
+                                <td> @department.NgayThanhLap.Value.ToString("dd/MM/yyyy") </td>
+                                <td>
+                                    <a style="font-family:VNI-Times; width:180px" href="@Url.Action("Sua", "BoPhan", new { id = department.DepartmentID })" class="btn btn-warning">Sửa</a>
+                                    <form method="post" action="@Url.Action("CapNhatTrangThai", "BoPhan")">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="departmentID" value="@department.DepartmentID" />
+                                        <input type="hidden" name="status" value="Ngừng hoạt động" />
+                                        <button type="submit" style="font-family: VNI-Times; width: 180px" class="btn btn-danger">Ngừng hoạt động</button>
+                                    </form>
+                                    <form method="post" action="@Url.Action("CapNhatTrangThai", "BoPhan")">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="departmentID" value="@department.DepartmentID" />
+                                        <input type="hidden" name="status" value="Hoạt động" />
+                                        <button type="submit" style="font-family: VNI-Times; width: 180px" class="btn btn-success">Hoạt động</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

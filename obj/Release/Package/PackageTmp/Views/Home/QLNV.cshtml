@@ -1,0 +1,177 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Employee>
+
+@{
+    ViewBag.Title = "QLNghiViec";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+}
+<div class="modal fade" id="employeeDetailModal" tabindex="-1" role="dialog" aria-labelledby="employeeDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="employeeDetailModalLabel">Thông tin chi tiết nhân viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Họ và tên đệm: <span id="employeeFirstName"></span></h6>
+                        <h6>Ngày sinh: <span id="employeeBirthDate"></span></h6>
+                        <h6>Địa chỉ: <span id="employeeAddress"></span></h6>
+                        <h6>Số điện thoại: <span id="employeePhoneNumber"></span></h6>
+                        <h6>Email: <span id="employeeEmail"></span></h6>
+                        <h6>CCCD: <span id="employeeCCCD"></span></h6>
+                        <h6>Nơi cấp CCCD: <span id="employeeNoiCap"></span></h6>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Ngày đăng ký: <span id="employeeNgayDK"></span></h6>
+                        <h6>Ngày kí hợp đồng: <span id="employeeNgayKi"></span></h6>
+                        <h6>Ngày hết hạn hợp đồng: <span id="employeeNgayHetHan"></span></h6>
+                        <h6>Chức vụ: <span id="employeeChucVu"></span></h6>
+                        <h6>Giới tính: <span id="employeeGioiTinh"></span></h6>
+                        <h6>Dân tộc: <span id="employeeDanToc"></span></h6>
+                        <h6>Học vấn: <span id="employeeHocVan"></span></h6>
+                        <h6>Mã phòng ban: <span id="employeeDepartmentID"></span></h6>
+                        <h6>Trạng thái: <span id="employeeTrangThai"></span></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-family: VNI-Times;" class="modal-title" id="confirmDeleteModalLabel">Xác Nhận Xóa Nhân Viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa nhân viên này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <a id="deleteConfirmButton" href="#" class="btn btn-danger">Xóa</a>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+                <a style="font-family: VNI-Times;" href="@Url.Action("ThemNhanVien", "NV")" class="btn btn-primary">Thêm nhân viên</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Họ và tên </th>
+                            <th> Ngày sinh </th>
+                            <th> Địa chỉ </th>
+                            <th> Số điện thoại </th>
+                            <th> Email </th>
+                            <th> Chức vụ </th>
+                            <th> Hành động </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @employee.FirstName @employee.LastName
+                                </td>
+                                <td> @employee.BirthDate.Value.ToString("dd/MM/yyyy") </td>
+
+                                <td> @employee.Address </td>
+                                <td> @employee.PhoneNumber </td>
+                                <td> @employee.Email </td>
+                                <td> @employee.ChucVu </td>
+                                <td>
+                                    <a style="font-family: VNI-Times;" href="#" class="btn btn-info employeeDetailButton" data-toggle="modal" data-target="#employeeDetailModal" data-id="@employee.EmployeeID">Chi tiết</a>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Edit", "NV", new { id = employee.EmployeeID })" class="btn btn-warning">Sửa</a>
+                                    <button type="button" class="btn btn-danger deleteEmployee" data-toggle="modal" data-target="#confirmDeleteModal" data-id="@employee.EmployeeID">Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.employeeDetailButton').click(function () {
+            var employeeID = $(this).data('id');
+            $.ajax({
+                url: "@Url.Action("GetEmployeeDetail", "NV")", // Điều chỉnh URL tương ứng với action của bạn
+                type: "GET",
+                data: { id: employeeID },
+                success: function (result) {
+                    // Điền thông tin chi tiết vào modal
+                    $('#employeeFirstName').text(result.FirstName);
+                    $('#employeeLastName').text(result.LastName);
+                    var birthDate = new Date(parseInt(result.BirthDate.substr(6)));
+                    $('#employeeBirthDate').text(birthDate.toLocaleDateString('en-GB'));
+                    $('#employeeAddress').text(result.Address);
+                    $('#employeePhoneNumber').text(result.PhoneNumber);
+                    $('#employeeEmail').text(result.Email);
+                    $('#employeeCCCD').text(result.CCCD);
+                    $('#employeeNoiCap').text(result.NoiCap);
+                    var NgayDK = new Date(parseInt(result.BirthDate.substr(6)));
+                    $('#employeeNgayDK').text(NgayDK.toLocaleDateString('en-GB'));
+                    var NgayKi = new Date(parseInt(result.BirthDate.substr(6)));
+                    $('#employeeNgayKi').text(NgayKi.toLocaleDateString('en-GB'));
+                    var NgayHetHan = new Date(parseInt(result.BirthDate.substr(6)));
+                    $('#employeeNgayHetHan').text(NgayHetHan.toLocaleDateString('en-GB'));
+                    $('#employeeChucVu').text(result.ChucVu);
+                    $('#employeeGioiTinh').text(result.GioiTinh);
+                    $('#employeeDanToc').text(result.DanToc);
+                    $('#employeeHocVan').text(result.HocVan);
+                    $('#employeeDepartmentID').text(result.DepartmentID);
+                    $('#employeeTrangThai').text(result.TrangThai);
+                    $('#employeeDetailModal').modal('show');
+                },
+                error: function (xhr, status, error) {
+                    alert("Đã xảy ra lỗi khi lấy thông tin chi tiết của nhân viên!");
+                }
+            });
+        });
+    });
+    $('.deleteEmployee').click(function () {
+        var employeeID = $(this).data('id');
+        $('#confirmDeleteModal').data('employeeid', employeeID);
+    });
+
+    $('#deleteConfirmButton').click(function () {
+        var employeeID = $('#confirmDeleteModal').data('employeeid');
+        $.ajax({
+            url: "@Url.Action("DeleteConfirmed", "NV")",
+            type: "POST",
+            data: { id: employeeID },
+            success: function (result) {
+                // Xử lý khi xóa thành công
+                window.location.reload();
+            },
+            error: function (xhr, status, error) {
+                console.error("Đã xảy ra lỗi khi xóa nhân viên:", error);
+            }
+        });
+    });
+
+</script>

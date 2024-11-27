@@ -1,0 +1,108 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.Salary>
+
+@{
+    ViewBag.Title = "Bảng Lương";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="text-right mb-3">
+                <a style="font-family: VNI-Times;" href="@Url.Action("Them", "Luong")" class="btn btn-primary">Thêm mới</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã Nhân Viên</th>
+                            <th>Lương Cơ Bản</th>
+                            <th>Thưởng</th>
+                            <th>Phạt</th>
+                            <th>Khấu Trừ</th>
+                            <th>Số giờ làm</th>
+                            <th>OT</th>
+                            <th>Giờ ngày lễ</th>
+                            <th>Tổng số giờ làm</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var salary in Model)
+                        {
+                            <tr>
+                                <td>@salary.EmployeeID</td>
+                                <td>@((double)salary.BasicSalary)</td>
+                                <td>@((double)salary.Bonus)</td>
+                                <td>@((double)salary.Phat)</td>
+                                <td>@((double)salary.Deductions)</td>
+                                <td>@salary.SoGioLam</td>
+                                <td>@salary.OT</td>
+                                <td>@salary.GioNgayLe</td>
+                                <td>@salary.TongSoGioLam</td>
+                                <td>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Sua", "Luong", new { id = salary.SalaryID })" class="btn btn-warning">Sửa</a>
+                                    <a style="font-family: VNI-Times;" href="#" class="btn btn-danger" data-salary-id="@salary.SalaryID">Xóa</a>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Xác nhận Xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa mục này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        $(document).ready(function () {
+            $('.btn-danger').on('click', function () {
+                var id = $(this).data('salary-id');
+                $('#confirmDeleteButton').attr('data-id', id);
+                $('#confirmDeleteModal').modal('show');
+                return false; // Prevent default link behavior
+            });
+
+            $('#confirmDeleteButton').on('click', function () {
+                var id = $(this).attr('data-id');
+                // Gửi yêu cầu xóa lương với id
+                $.ajax({
+                    url: '/Luong/Xoa/' + id,
+                    success: function () {
+                        // Thực hiện các hành động sau khi xóa thành công
+                        // Đóng modal
+                        $('#confirmDeleteModal').modal('hide');
+                        // Hiển thị thông báo hoặc làm gì đó khác (nếu cần)
+                        window.location.reload(); // Tải lại trang để cập nhật danh sách
+                    },
+                    error: function () {
+                        // Xử lý lỗi (nếu có)
+                        // Hiển thị thông báo hoặc làm gì đó khác (nếu cần)
+                    }
+                });
+            });
+        });
+
+    </script>
+

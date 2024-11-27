@@ -1,0 +1,320 @@
+﻿@model IEnumerable<WebQuanLyNhanSu.RewardsPenalty>
+
+@{
+    ViewBag.Title = "Khen thưởng và kỷ luật";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="text-center mb-3">
+        <button style="font-family: VNI-Times;" class="btn btn-primary mr-2" onclick="showAddForm()">
+            Thêm <i class="fas fa-plus-circle mr-1"></i>
+        </button>
+        <button style="font-family: VNI-Times;" class="btn btn-info mr-2" onclick="editSelectedRows()">
+            Sửa <i class="fas fa-edit mr-1"></i>
+        </button>
+        <button style="font-family: VNI-Times;" class="btn btn-danger" onclick="deleteSelectedRows()">
+            Xóa <i class="fas fa-trash-alt mr-1"></i>
+        </button>
+    </div>
+
+    <div id="addForm" class="card" style="display: none;">
+        <div class="card-body">
+            <h2 class="card-title text-center">Thêm mới</h2>
+            @using (Html.BeginForm("ThemKyLuat", "KTKL", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label for="employeeID">Mã nhân viên:</label>
+                    <select class="form-control" id="employeeID">
+                        <option value="employeeID">Chọn mã nhân viên</option>
+                        @foreach (var item in ViewBag.NV)
+                        {
+                            <option value="@item.EmployeeID">@item.EmployeeID</option>
+                        }
+                    </select>
+                </div>
+                @Html.Hidden("employeeID", null, new { id = "hiddenEmployeeID" })
+
+                <div class="form-group">
+                    <label for="employeeName">Tên nhân viên:</label>
+                    <input type="text" class="form-control" id="employeeName" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Loại:</label>
+                    @Html.DropDownList("type", new List<SelectListItem>
+                    {
+                        new SelectListItem { Text = "Khen", Value = "Khen" },
+                        new SelectListItem { Text = "Phạt", Value = "Phạt" }
+                    }, "Chọn loại", new { @class = "form-control", id = "type" })
+                </div>
+                <div class="form-group">
+                    <label for="amount">Số tiền:</label>
+                    @Html.TextBox("amount", null, new { @class = "form-control", id = "amount" })
+                </div>
+                <div class="form-group">
+                    <label for="reason">Lý do:</label>
+                    @Html.TextBox("reason", null, new { @class = "form-control", id = "reason" })
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideAddForm()">Hủy</button>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div id="editForm" class="card" style="display: none;">
+        <div class="card-body">
+            <h2 class="card-title text-center">Sửa thông tin kỷ luật</h2>
+
+            @using (Html.BeginForm("SuaKyLuat", "KTKL", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("rewardPenaltyID", null, new { id = "rewardPenaltyID" })
+                <div class="form-group">
+                    <label for="employeeName1">Tên nhân viên:</label>
+                    <input type="text" class="form-control" id="employeeName1" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Loại:</label>
+                    <input type="text" class="form-control" id="type1" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Số tiền:</label>
+                    <input type="text" class="form-control" id="amount1" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Lý do:</label>
+                    @Html.TextBox("reason1", null, new { @class = "form-control", id = "reason1" })
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-secondary" onclick="hideEditForm()">Hủy</button>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 style="font-family: VNI-Times;" class="card-title text-center">Bảng khen thưởng</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Mã nhân viên</th>
+                                        <th>Tên nhân viên</th>
+                                        <th>Loại</th>
+                                        <th>Số tiền</th>
+                                        <th>Lý do</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Where(m => m.Type == "Khen"))
+                                    {
+                                        <tr>
+                                            <td><input type="checkbox" name="selectedRows" value="@item.RewardPenaltyID"></td>
+                                            <td>@item.EmployeeID</td>
+                                            <td>@item.Employee.FirstName @item.Employee.LastName</td>
+                                            <td>@item.Type</td>
+                                            <td>@((double)item.Amount)</td>
+                                            <td>@item.Reason</td>
+                                            <td>@item.Ngay</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 style="font-family: VNI-Times;" class="card-title text-center">Bảng kỷ luật</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped text-center">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Mã nhân viên</th>
+                                        <th>Tên nhân viên</th>
+                                        <th>Loại</th>
+                                        <th>Số tiền</th>
+                                        <th>Lý do</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Where(m => m.Type == "Phạt"))
+                                    {
+                                        <tr>
+                                            <td><input type="checkbox" name="selectedRows" value="@item.RewardPenaltyID"></td>
+                                            <td>@item.EmployeeID</td>
+                                            <td>@item.Employee.FirstName @item.Employee.LastName</td>
+                                            <td>@item.Type</td>
+                                            <td>@((double)item.Amount)</td>
+                                            <td>@item.Reason</td>
+                                            <td>@item.Ngay</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xoá</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary dongmodal" data-dismiss="modal">Hủy</button>
+                <button type="button" id="confirmButton" class="btn btn-danger confirmButton" onclick="confirmDelete()">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện click cho nút "Đóng"
+        $(".dongmodal").click(function () {
+            $("#confirmDeleteModal").modal('hide'); // Đóng modal
+        });
+    });
+    // Check if success parameter is present in URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var success = urlParams.get('success');
+    if (success) {
+        showSuccessAlert("Thành công!"); // Show success alert
+    }
+    function showAddForm(type) {
+        document.getElementById('type').value = type;
+        document.getElementById('addForm').style.display = 'block';
+    }
+
+    function hideAddForm() {
+        document.getElementById('addForm').style.display = 'none';
+    }
+    function hideEditForm() {
+        document.getElementById('editForm').style.display = 'none';
+    }
+    $(document).ready(function () {
+        $('#employeeID').change(function () {
+            var selectedEmployeeID = $(this).val();
+            $('#hiddenEmployeeID').val(selectedEmployeeID);
+        });
+    });
+    $(document).ready(function () {
+        $("#employeeID").change(function () {
+            var employeeID = $(this).val();
+            if (employeeID) {
+                // Đặt giá trị cho trường ẩn
+                $("#hiddenEmployeeID").val(employeeID);
+                $.ajax({
+                    url: '/KTKL/GetEmployeeName',
+                    type: 'GET',
+                    data: { employeeID: employeeID },
+                    success: function (data) {
+                        $("#employeeName").val(data);
+                    },
+                    error: function () {
+                        showSuccessAlert('Đã xảy ra lỗi khi lấy tên nhân viên.');
+                    }
+                });
+            }
+        });
+    });
+
+    function editSelectedRows() {
+        var checkedRows = $("input[name='selectedRows']:checked");
+        if (checkedRows.length === 1) {
+            var employeeName = checkedRows.closest("tr").find("td:eq(2)").text().trim();
+            var type = checkedRows.closest("tr").find("td:eq(3)").text().trim();
+            var amount = checkedRows.closest("tr").find("td:eq(4)").text().trim();
+            var reason = checkedRows.closest("tr").find("td:eq(5)").text().trim();
+            var rewardPenaltyID = checkedRows.val();
+            $("#employeeName1").val(employeeName);
+            $("#rewardPenaltyID").val(rewardPenaltyID);
+            $("#type1").val(type);
+            $("#amount1").val(amount);
+            $("#reason1").val(reason);
+
+            $("#editForm").show(); // Show the edit form
+
+        } else {
+            $('#confirmButton').hide();
+            showSuccessAlert("Vui lòng chọn một nhân viên để sửa.");
+        }
+    }
+    function showSuccessAlert(message) {
+        $("#modalMessage").text(message);
+        $("#confirmDeleteModal").modal('show');
+    }
+    function deleteSelectedRows() {
+        var checkedRows = $("input[name='selectedRows']:checked");
+        if (checkedRows.length > 0) {
+            $('.confirmButton').show();
+            showSuccessAlert("Bạn có chắc chắn xoá?");
+
+        } else {
+            $('#confirmButton').hide();
+            showSuccessAlert("Vui lòng chọn ít nhất một dòng để xoá.");
+        }
+    }
+
+    function confirmDelete() {
+        var checkedRows = $("input[name='selectedRows']:checked");
+        checkedRows.each(function () {
+            var rewardPenaltyID = $(this).val();
+            $.ajax({
+                url: '/KTKL/XoaKyLuat',
+                type: 'POST',
+                data: { rewardPenaltyID: rewardPenaltyID },
+                success: function () {
+                    // Xóa hàng dữ liệu khỏi bảng
+                    checkedRows.closest("tr").remove();
+                    showSuccessAlert("Xoá dữ liệu thành công!");
+                },
+                error: function () {
+                    showSuccessAlert('Đã xảy ra lỗi khi xoá dữ liệu.');
+                }
+            });
+        });
+        $('#confirmDeleteModal').modal('hide');
+    }
+
+</script>
+
+
+
+
+

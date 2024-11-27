@@ -1,0 +1,93 @@
+﻿@model List<WebQuanLyNhanSu.CheDo>
+
+@{
+    ViewBag.Title = "Quản lý chế độ";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Message
+    </div>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <a style="font-family: VNI-Times;" href="@Url.Action("Them", "CheDo")" class="btn btn-primary">Thêm chế độ</a>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> Mã chế độ </th>
+                            <th> Mã nhân viên </th>
+                            <th> Nơi cấp </th>
+                            <th> Ngày cấp </th>
+                            <th> Ghi chú </th>
+                            <th> Thao tác </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cheDo in Model)
+                        {
+                            <tr>
+                                <td> @cheDo.MaCD </td>
+                                <td> @cheDo.MaNV </td>
+                                <td> @cheDo.NoiCap </td>
+                                <td> @cheDo.NgayCap.Value.ToString("dd/MM/yyyy") </td>
+                                <td> @cheDo.Note </td>
+                                <td>
+                                    <a style="font-family: VNI-Times;" href="@Url.Action("Sua", "CheDo", new { id = cheDo.MaCD })" class="btn btn-warning">Sửa</a>
+                                    <button style="font-family: VNI-Times;" type="button" class="btn btn-danger deleteButton" data-id="@cheDo.MaCD">Xóa</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Modal xác nhận xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-family: VNI-Times;" class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có chắc chắn muốn xóa chế độ này không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary dongmodal" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmButton">Xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện click cho nút "Đóng"
+        $(".dongmodal").click(function () {
+            $("#confirmDeleteModal").modal('hide'); // Đóng modal
+        });
+    });
+    $(document).ready(function () {
+        // Xác nhận xóa khi nhấn vào nút Xóa
+        $('.deleteButton').click(function () {
+            var maCD = $(this).data('id');
+            $('#confirmDeleteModal').data('macd', maCD);
+            $('#confirmDeleteModal').modal('show');
+        });
+
+        // Xác nhận xóa khi nhấn vào nút Xóa trong modal
+        $('#deleteConfirmButton').click(function () {
+            var maCD = $('#confirmDeleteModal').data('macd');
+            // Gọi action xóa với mã chế độ là maCD
+            window.location.href = '@Url.Action("Xoa", "CheDo")?id=' + maCD;
+        });
+    });
+</script>

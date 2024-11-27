@@ -1,0 +1,448 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRM CMC</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        body {
+            background-color: #f7fbff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .header {
+            display: flex; /* Sử dụng Flexbox */
+            align-items: center; /* Căn giữa dọc */
+            justify-content: flex-start; /* Căn trái */
+            background: linear-gradient(90deg, #6fbdf3, #5a9bd3);
+            padding: 40px;
+            color: white;
+            text-align: left; /* Căn trái cho văn bản */
+            border-bottom: 5px solid #4a8fbf;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+            .header h1 {
+                font-size: 2.8em;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+
+        .navbar {
+            background-color: #4a8fbf;
+            margin-bottom: 30px;
+            border-radius: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1em;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: #ffffff;
+        }
+
+            .navbar-nav .nav-link:hover {
+                background-color: #3d7fbf;
+                color: #ffffff;
+                border-radius: 5px;
+            }
+
+        .intro-section, .pricing-section {
+            padding: 60px;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .intro-section:hover, .pricing-section:hover {
+                transform: translateY(-5px);
+            }
+
+            .intro-section h2, .pricing-section h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                color: #0056b3;
+            }
+
+            .intro-section p, .pricing-section p {
+                font-size: 1.1em;
+                color: #555;
+            }
+
+            .intro-section .btn, .card-body .btn {
+                margin-top: 20px;
+                background-image: linear-gradient(45deg, #6fbdf3, #4a8fbf);
+                color: white;
+                border: none;
+                transition: background-size 0.3s, transform 0.2s;
+                background-size: 200%;
+            }
+
+                .intro-section .btn:hover, .card-body .btn:hover {
+                    background-position: right;
+                    transform: scale(1.05);
+                }
+
+            .pricing-section h2 {
+                color: #0056b3;
+                margin-bottom: 40px;
+            }
+
+        .card {
+            margin: 20px;
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            }
+
+        .why-choose-section {
+            padding: 60px;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+            .why-choose-section h2 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                color: #0056b3;
+            }
+
+        .why-choose-list {
+            list-style: none;
+            padding: 0;
+        }
+
+            .why-choose-list li {
+                font-size: 1.1em;
+                color: #555;
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+            }
+
+                .why-choose-list li i {
+                    color: #28a745; /* Màu cho biểu tượng */
+                    margin-right: 10px; /* Khoảng cách giữa biểu tượng và nội dung */
+                    font-size: 1.5em; /* Kích thước biểu tượng */
+                }
+
+
+        /* Footer */
+        footer {
+            background-color: #e3f2fd; /* Màu xanh dương nhạt */
+            color: #4f5b62;
+            padding-top: 2rem;
+            font-family: Arial, sans-serif;
+        }
+
+            footer img {
+                width: 180px;
+                margin-bottom: 1rem;
+            }
+
+            footer p {
+                color: #546e7a;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            footer ul.list-inline li a {
+                color: #546e7a;
+                font-size: 1.2rem;
+                transition: color 0.3s ease-in-out;
+            }
+
+                footer ul.list-inline li a:hover {
+                    color: #0288d1; /* Màu xanh đậm hơn khi hover */
+                }
+
+            footer h6 {
+                color: #1e88e5;
+                font-weight: bold;
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            footer ul.list-unstyled li a {
+                color: #546e7a;
+                text-decoration: none;
+                font-size: 0.95rem;
+                transition: color 0.3s ease-in-out;
+            }
+
+                footer ul.list-unstyled li a:hover {
+                    color: #0288d1;
+                }
+
+            footer .newsletter p {
+                color: #546e7a;
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            footer .newsletter .input-group input {
+                border: 1px solid #90caf9;
+                background-color: #ffffff;
+                color: #546e7a;
+                border-radius: 0.25rem;
+                padding: 0.5rem;
+                box-shadow: none;
+            }
+
+                footer .newsletter .input-group input::placeholder {
+                    color: #90a4ae;
+                }
+
+            footer .newsletter .input-group .btn {
+                color: #ffffff;
+                background-color: #1e88e5;
+                font-size: 1.2rem;
+                border-radius: 0 0.25rem 0.25rem 0;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+                footer .newsletter .input-group .btn:hover {
+                    background-color: #1565c0;
+                }
+
+            footer .bg-light {
+                background-color: #bbdefb !important;
+                border-top: 1px solid #90caf9;
+            }
+
+                footer .bg-light p {
+                    color: #546e7a;
+                    font-size: 0.85rem;
+                }
+
+            footer .text-center {
+                text-align: center;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header d-flex align-items-center" data-aos="fade-down">
+        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Artboard-5.png" alt="Logo" class="logo" style="max-height: 80px; margin-right: 20px;">
+        <h1>Hệ thống chấm công và tính lương</h1>
+    </header>
+
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#home">Trang Chủ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#intro">Giới Thiệu</a></li>
+                <li class="nav-item"><a class="nav-link" href="@Url.Action("DangNhap", "Home")">Đăng Nhập</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pricing">Giá Bán/Thuê</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Giới thiệu về sản phẩm -->
+    <section class="intro-section" id="intro" data-aos="fade-up">
+        <div class="d-flex align-items-center">
+            <img src="https://tgroup.vn/uploads/images/thao-nhi/tri-tue-nhan-tao-AI-tgroup-travel-6.png" alt="Trí tuệ nhân tạo" class="ai-image" style="max-width: 500px; margin-right: 20px;">
+            <div>
+                <h2>Giới thiệu về sản phẩm</h2>
+                <p>Hệ thống quản lý chấm công và tính lương của chúng tôi ứng dụng trí tuệ nhân tạo để tự động hóa các quy trình, giúp tiết kiệm thời gian và tăng độ chính xác trong việc quản lý nhân sự. Với AI, chúng tôi cung cấp các phân tích dữ liệu và báo cáo chi tiết, cho phép doanh nghiệp dễ dàng đưa ra các quyết định thông minh.</p>
+                <div class="button-group">
+                    <a href="#pricing" class="btn btn-success">Đăng ký mua sản phẩm</a>
+                    <a href="@Url.Action("DangNhap", "Home")" class="btn btn-info">Đăng Nhập</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần giới thiệu mới -->
+    <section class="intro-section" data-aos="fade-up">
+        <div class="d-flex align-items-center flex-row-reverse">
+            <img src="https://vti-solutions.vn/wp-content/uploads/2023/03/Anh-chup-man-hinh-2023-03-27-110851.png" alt="Hình ảnh giới thiệu mới" class="ai-image" style="max-width: 500px; margin-left: 20px;"> <!-- Thay đổi đường dẫn ảnh -->
+            <div>
+                <h2>Giới thiệu thêm về hệ thống</h2>
+                <p>Hệ thống của chúng tôi còn cung cấp nhiều tính năng vượt trội như quản lý hồ sơ nhân viên, theo dõi hiệu suất làm việc và tự động hóa quy trình tuyển dụng. Chúng tôi cam kết mang đến giải pháp tối ưu cho doanh nghiệp của bạn.</p>
+                <div class="button-group">
+                    <a href="#pricing" class="btn btn-success">Tìm hiểu thêm</a>
+                    <a href="@Url.Action("DangNhap", "Home")" class="btn btn-info">Đăng Nhập</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần Tại sao lại nên lựa chọn công nghệ của chúng tôi -->
+    <section class="why-choose-section" data-aos="fade-up" data-aos-duration="1200">
+        <h2>Tại sao lại nên lựa chọn công nghệ của chúng tôi?</h2>
+        <ul class="why-choose-list">
+            <li>
+                <i class="fas fa-check-circle"></i> Giải pháp tùy chỉnh linh hoạt
+            </li>
+            <li>
+                <i class="fas fa-clock"></i> Tiết kiệm thời gian
+            </li>
+            <li>
+                <i class="fas fa-users"></i> Đội ngũ hỗ trợ chuyên nghiệp
+            </li>
+            <li>
+                <i class="fas fa-cogs"></i> Tối ưu hóa quy trình làm việc
+            </li>
+            <li>
+                <i class="fas fa-chart-line"></i> Tăng cường hiệu suất và độ chính xác
+            </li>
+        </ul>
+    </section>
+
+
+
+    <!-- Phần giá bán/thuê -->
+    <section class="pricing-section" id="pricing" data-aos="zoom-in">
+        <h2>Gói Dịch Vụ</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Bản Thường</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">100,000 VNĐ/tháng</h5>
+                        <p class="card-text">- Chấm công cơ bản</p>
+                        <p class="card-text">- Tính lương đơn giản</p>
+                        <p class="card-text">- Hỗ trợ khách hàng qua email</p>
+                        <a href="@Url.Action("DangKi", "Home")" class="btn btn-primary">Chọn Gói</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Bản Pro</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">200,000 VNĐ/tháng</h5>
+                        <p class="card-text">- Chấm công nâng cao</p>
+                        <p class="card-text">- Tính lương tự động</p>
+                        <p class="card-text">- Hỗ trợ khách hàng 24/7</p>
+                        <a href="@Url.Action("DangKi", "Home")" class="btn btn-primary">Chọn Gói</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Bản Thuê</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">3,000,000 VNĐ/năm</h5>
+                        <p class="card-text">- Tất cả tính năng của bản Pro</p>
+                        <p class="card-text">- Hỗ trợ tùy chỉnh theo yêu cầu</p>
+                        <p class="card-text">- Đào tạo miễn phí cho nhân viên</p>
+                        <a href="@Url.Action("DangKi", "Home")" class="btn btn-primary">Chọn Gói</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Các thẻ dịch vụ khác giống như trên -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="container py-5">
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/12/Artboard-5.png" alt="Logo" width="180" class="mb-3">
+                    <p class="font-italic text-muted">
+                        Hệ thống quản lý chấm công và tính lương chính xác, dễ sử dụng, giúp doanh nghiệp tối ưu quy trình chấm công và quản lý lương thưởng.
+                    </p>
+                    <ul class="list-inline mt-4">
+                        <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Dịch Vụ</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-muted">Quản lý chấm công</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Tính lương tự động</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Quản lý nhân sự</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Báo cáo và thống kê</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Công ty</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-muted">Đăng nhập</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Đăng ký</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Dịch vụ của chúng tôi</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Nhận thông tin mới nhất</h6>
+                    <p class="text-muted mb-4">Nhận cập nhật về các tính năng mới và những mẹo quản lý hiệu quả nhất từ chúng tôi.</p>
+                    <div class="p-1 rounded border">
+                        <div class="input-group">
+                            <input type="email" placeholder="Nhập địa chỉ email" aria-describedby="button-addon1" class="form-control border-0 shadow-0">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="bg-light py-4">
+            <div class="container text-center">
+                <p class="text-muted mb-0 py-2">© 2024 Nguyen Tien Luyen. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- End -->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+        });
+    </script>
+</body>
+</html>
